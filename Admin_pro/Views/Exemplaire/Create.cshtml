@@ -1,0 +1,78 @@
+﻿@model Admin_pro.ViewModels.ExemplaireViewModel
+
+@{
+    Layout = null;
+}
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="MymodalEtudiant">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"> Ajouter Etudiant  :</h4>
+            </div>
+            <div class="modal-body">
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="Exemplaire" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Numero Exemplaire  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.nb_pages, new { @placeholder = "Valeur Entier", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Titre  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.titre, new { @placeholder = "Titre", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                        Nombre de pages  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.nb_pages, new { @placeholder = "Prenom", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+                   
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                          Categorie  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Categorie, new { @placeholder = "telephone", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                  
+
+
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+
+                @*      <button class="btn btn-primary" onclick="new PNotify({
+                    title: 'success',
+                                                  text: 'Toutes les champs est bien Enregistrer',
+                                                  type: 'success',
+                                                  styling: 'bootstrap3'
+                                              });">
+                                   Save
+                                </button>*@
+
+            </div>
+        </div>
+    </div>
+</div>

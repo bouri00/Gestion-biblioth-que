@@ -1,0 +1,218 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+}
+
+
+
+<div class="container">
+
+    <div class="row">
+
+        <main id="main" class="site-main col-md-12">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="contact-form">
+
+                        <h3 class="title">Contact Form  :</h3>
+
+                        <p>Send an email. All fields  are required.</p>
+
+                        <form action="#" method="get">
+
+                            <input class="input-text" type="text" placeholder="Your Name *">
+
+                            <input class="input-text" type="email" placeholder="Your Email *">
+
+                            <div class="selectbox">
+
+                                <select>
+
+                                    <option>-- Select subjects *</option>
+
+                                    <option value="subjects one">Subjects one</option>
+
+                                    <option value="subjects two">Subjects two</option>
+
+                                </select>
+
+                            </div>
+
+                            <textarea rows="2" cols="50" placeholder="Your Message *"></textarea>
+
+                            <div class="checkbox">
+
+                                <input id="send" type="checkbox" value="1">
+
+                                <label for="send">Send copy to yourself</label>
+
+                            </div>
+
+                            <input class="button primary rounded" type="submit" value="Send Email">
+
+                        </form>
+
+                    </div><!-- .contact-form -->
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="contact-info">
+
+                        <div id="map"></div>
+
+
+                        <h3 class="title">   Contact Infomation  :</h3>
+
+                        <p>Address: 197 Street Hay Hassani 1,ISTA HH1 Suite 7S Casablanca, NY 10013 Maroc</p>
+
+                        <p>Phone: +(212) 630 288350</p>
+
+                        <p>Fax: +(212) 522 8321</p>
+
+                        <p>Email: <a href="mailto:contact@university.com">Mustafabouri@Gmail.com</a></p>
+
+                    </div><!-- .contact-info -->
+
+                </div>
+
+            </div>
+
+        </main><!-- .site-main -->
+
+    </div><!-- .row -->
+
+</div><!-- .container -->
+<!-- Google Map -->
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+
+		function initialize() {
+
+			var customMapType = new google.maps.StyledMapType([
+
+				{
+
+					featureType: "all",
+
+					stylers: [
+
+						{ saturation: -100 }
+
+					]
+
+				},{
+
+					featureType: "road.arterial",
+
+					elementType: "geometry",
+
+					stylers: [
+
+						{ hue: "#005EFF" },
+
+						{ saturation: -100 }
+
+					]
+
+				},{
+
+					featureType: "poi.business",
+
+					elementType: "labels",
+
+					stylers: [
+
+						{ visibility: "off" }
+
+					]
+
+				}
+
+			], {
+
+				name: 'Universum'
+
+			});
+
+
+
+			var customMapTypeId = 'custom_style';
+
+
+
+			var myLatLng = {lat: 42.376012, lng: -71.115920};
+
+
+
+			var map = new google.maps.Map(document.getElementById('map'), {
+
+				zoom: 15,
+
+				scrollwheel: false,
+
+			    navigationControl: false,
+
+			    mapTypeControl: false,
+
+			    scaleControl: false,
+
+				center: myLatLng
+
+			});
+
+
+
+			var marker = new google.maps.Marker({
+
+				position: myLatLng,
+
+				map: map,
+
+				title: 'Universum',
+
+				icon: 'images/assets/icons/map-maker.png'
+
+
+
+			});
+
+
+
+			var contentString = 'Universum';
+
+
+
+			var infowindow = new google.maps.InfoWindow({
+
+				content: contentString
+
+			});
+
+
+
+			marker.addListener('click', function() {
+
+				infowindow.open(map, marker);
+
+			});
+
+
+
+			map.mapTypes.set(customMapTypeId, customMapType);
+
+			map.setMapTypeId(customMapTypeId);
+
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+

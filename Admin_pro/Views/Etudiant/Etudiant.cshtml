@@ -1,0 +1,119 @@
+﻿
+
+ @model IEnumerable<Admin_pro.Models.Etudiant>
+
+  <head> <style>
+    .button2 {
+        background-color: #008CBA;
+    }
+    /* Blue */
+    .button3 {
+        background-color: #f44336;
+    }
+    /* Red */
+</style></head>
+<div class="right_col" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Liste Des Etudiant <small>Users</small></h2>
+
+               
+             
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    <li>
+                        <!-- Large modal -->
+                        <button type="button" id="BtnMymodalEtudiant" class="btn btn-primary" data-toggle="modal" data-target="#MymodalEtudiant" data-url="/Etudiant/Create">Nouveau</button>
+                    </li>
+
+</ul>
+                <div class="clearfix"></div>
+            </div>
+         <!--  <div class="x_content">
+                <p class="text-muted font-13 m-b-30">
+                    The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
+                </p>-->
+
+         
+
+
+                <table id="datatable-buttons" class="table table-striped table-bordered">
+
+
+                    <thead>
+                        <tr>
+                            <th>Numero </th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Date Naissance </th>
+                            <th>Telephone</th>
+                            <th>Adresse</th>
+                            <th>Ville</th>
+                            <th>Code Postal </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var it in Model)
+                        {
+                            <tr>
+                                <td>@it.num_etudiant </td>
+                                <td>@it.nom</td>
+                                <td> @it.prenom</td>
+                                <td> @it.date_naissance</td>
+                                <td>@it.telephone</td>
+                                <td> @it.adresse</td>
+                                <td>@it.ville</td>
+                                <td>@it.code_postal</td>
+                                <td><button class="fa fa-edit">  Edit</button> <button class="fa fa-remove"> Remove</button> <button  class="fa fa-plus-square"> Details</button></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<span id="Modal_CrudEtudiant">
+</span>
+
+<script>
+    $('#BtnMymodalEtudiant').click(function () {
+        var url = $(this).attr('data-url');
+        $('#Modal_CrudEtudiant').html('');
+        $.get(url, function (data) {
+
+            $('#Modal_CrudEtudiant').html(data);
+            $('#MymodalEtudiant').modal('show');
+        });
+    });
+</script>
+
+
+
+
+
