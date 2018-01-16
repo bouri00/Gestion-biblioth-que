@@ -1,0 +1,190 @@
+﻿@model Admin_pro.ViewModels.AuthentificationViewModel
+
+
+@{
+    Layout = null;
+}
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="Mymodaluser">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">  Users  :</h4>
+            </div>
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/users/Create" method="post">
+                <div class="modal-body">
+
+                    @Html.HiddenFor(x => x.User_Name)
+                  
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                           Nom Utilisateur  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                            @Html.TextBoxFor(x => x.User_Name, new { @placeholder = "Utilisateur", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                       
+                         </div>
+                    </div>
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                           Nom : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Name, new
+                       {
+                           @placeholder = "Nom",
+                           Type = "varchar",
+                           @class = "form-control col-md-7 col-xs-12",
+                           @required = "required"
+
+                       })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Prénom : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.prenom, new
+                       {
+                           @placeholder = "Prénom",
+                           Type = "varchar",
+                           @class = "form-control col-md-7 col-xs-12",
+                           @required = "required"
+
+                       })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            E-mail  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email", Type = "email", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                           Roles : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Roles, new
+                       {
+                           @placeholder = "Role",
+                           Type = "varchar",
+                           @class = "form-control col-md-7 col-xs-12",
+                           @required = "required"
+
+                       })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                          Password : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Password_cle, new { @placeholder = "telephone", Type = "password", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                           Confirm Password  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Confirmpassword, new { @placeholder = "Email", Type = "password", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <labl class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Photo User : <span class="required">*</span>
+                        </labl>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="file" name="photou_tilisateur" id="photou_tilisateur" required="required" />
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                           Ajouter Photo: <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="file" name="File Upload" id="txtUploadFile" multiple>
+                        </div>
+                    </div>
+                    <input type="file" name="File Upload" id="txtUploadFile" multiple>*@  
+                    @*<div class="x_content">
+                        <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                        <form action="form_upload.html" class="dropzone"></form>
+                       
+                    </div>*@
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                   
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*$('#txtUploadFile').on('change', function (e) {
+
+    var files = e.target.files;
+    //var myID = 3; //uncomment this to make sure the ajax URL works
+    if (files.length > 0) {
+       if (window.FormData !== undefined) {
+           var data = new FormData();
+           for (var x = 0; x < files.length; x++){
+               data.append("file" + x, files[x]);
+           }
+
+           $.ajax({
+               type: "POST",
+               url: '/MyController/UploadFile?id=' + myID,
+               contentType: false,
+               processData: false,
+               data: data,
+               success: function(result) {
+                   console.log(result);
+               },
+               error: function (xhr, status, p3, p4){
+                   var err = "Error " + " " + status + " " + p3 + " " + p4;
+                   if (xhr.responseText && xhr.responseText[0] == "{")
+                       err = JSON.parse(xhr.responseText).Message;
+                       console.log(err);
+                    }
+                });
+        } else {
+            alert("This browser doesn't support HTML5 file uploads!");
+          }
+     }
+});*@

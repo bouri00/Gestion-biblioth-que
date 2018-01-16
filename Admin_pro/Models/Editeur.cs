@@ -14,17 +14,11 @@ namespace Admin_pro.Models
     
     public partial class Editeur
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Editeur()
-        {
-            this.Ouvrage = new HashSet<Ouvrage>();
-        }
-    
-        public string id_Editeur { get; set; }
+        public int id_Editeur { get; set; }
         public string ville { get; set; }
         public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ouvrage> Ouvrage { get; set; }
+        public string nomE { get; set; }
+        public string prenomE { get; set; }
+        public string nationalite { get; set; }
     }
 }

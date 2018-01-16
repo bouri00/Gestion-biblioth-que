@@ -1,0 +1,127 @@
+﻿
+@model IEnumerable<Admin_pro.Models.Commander>
+
+
+<div class="right_col" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Liste Des Achat  </h2>
+
+
+
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                    <li>
+                        <!-- Large modal -->
+                        <button type="button" class="btn btn-primary BtnAcheter" data-toggle="modal" data-url="/Commander/Create">Nouveau</button>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+
+
+                <thead>
+                    <tr>
+                        <th>Id  Commande</th>
+                        <th>Numero Ouvrage : </th>
+
+                        <th> Prix  </th>
+
+                        <th>Quantite </th>
+
+                        <th> Remise </th>
+
+                        <th> Destinataire </th>
+                        <th>Date Commande</th>
+                        <th> Date Envoyer</th>
+                        <th> ville livraison</th>
+                        <th> Pays Livraison </th>
+                        <th> Total</th>
+                        <th> Action</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var mm in Model)
+                    {
+                        <tr>
+                            <td> @mm.Idcom</td>
+                            <td>@mm.id_ouvrage</td>
+                            <td>@mm.Prix</td>
+                            <td>@mm.quantite</td>
+                            <td> @mm.remise</td>
+                            <td>@mm.destinataire</td>
+                            <td> @mm.datecommande</td>
+                            <td> @mm.date_envoi</td>
+                            <td> @mm.ville_livraison</td>
+                            <td> @mm.pays_livraison</td>
+                            <td> @mm.Total</td>
+
+
+                            <td>
+
+                                <button class="btn btn-primary btn-xs BtnAcheter" data-toggle="modal" data-url="/Commander/Create?Idcom=@mm.Idcom"><i class="fa fa-folder"></i> View </button>
+                                <button class="btn btn-info btn-xs  BtnAcheter" data-toggle="modal" data-url="/Commander/Create?Idcom=@mm.Idcom"><i class="fa fa-pencil"></i> Edit </button>
+                                <button class="btn btn-danger btn-xs  BtnAcheter" data-toggle="modal" data-url="/Commander/Delete?Idcom=@mm.Idcom"><i class="fa fa-trash-o"></i> Delete </button>
+
+                            </td>
+
+                        </tr> }
+                </tbody>
+
+
+
+
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<span id="Modal_Crud">
+</span>
+
+<script>
+    $('.BtnAcheter').click(function () {
+        var url = $(this).attr('data-url');
+        $('#Modal_Crud').html('');
+        $.get(url, function (data) {
+
+            $('#Modal_Crud').html(data);
+            $('#MymodalCP').modal('show');
+        });
+    });
+</script>
+
+
+
+
+

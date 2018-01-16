@@ -1,0 +1,306 @@
+﻿@model Library_And_Education.Models.Ouvrage
+
+
+    <h1>
+        <div class="button primary rounded pull-right">     Bienvennu  :  @Session["UserId"].ToString()  </div>
+    </h1>
+    <br /><br />
+    <a href="/ouvrage2/ouvrage2" class="button pink rounded large animation-element fade-right"> Déconnecter </a>
+
+<br /><br />
+
+
+
+
+@using (Html.BeginForm("Add2", "Connexion", FormMethod.Post))
+{
+
+
+
+<div id="content" class="site-content shop-content">
+
+
+    <div class="page-title parallax-window" data-parallax="scroll" data-image-src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/blog-title.jpg">
+
+        <div class="container">
+
+            <h1>Panier</h1>
+
+            <div class="breadcrumb">
+
+                <ul>
+
+                    <li><a href="#">Login</a></li>
+
+                    <li><span class="current">  Panier </span></li>
+
+                </ul>
+
+            </div><!-- .breadcrumb -->
+
+        </div><!-- .container -->
+
+    </div><!-- .page-title -->
+
+    <div class="container">
+     <div class="row">
+
+
+            <main id="main" class="site-main col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-8">
+
+                        <form class="cart-form" action="post">
+
+
+                            <div class="table-responsive">
+
+                                <table class="table cart-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th></th>
+
+                                            <th class="product-name">Produit </th>
+
+                                            <th>Prix</th>
+
+                                            <th>Quantite</th>
+
+                                            <th>Total</th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td class="product-remove">
+
+                                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+
+                                            </td>
+
+                                            <td class="product-name">
+
+                                                <a href="single-product.html">
+
+                                                    <img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/cart1.jpg" alt="">
+
+                                                    @*@{
+                                                        var imgUrl = " http://localhost:53211" + @pp.Photo;
+
+
+                                                    }*@
+
+
+                                                 
+
+                                                    @*<span>  @Session["titre"].ToString()</span>*@
+
+                                                </a>
+
+                                            </td>
+
+                                            <td class="product-price">
+
+                                                @Session["Prix"].ToString()
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="quantity">
+
+                                                    @Session["Quantite"].ToString()
+                                                </div>
+
+                                            </td>
+
+                                            <td class="product-subtotal">
+
+                                                @Session["Total"].ToString()
+
+                                            </td>
+
+                                        </tr>
+
+
+                                        @*<tr>
+
+                                            <td class="product-remove">
+
+                                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+
+                                            </td>
+
+                                            <td class="product-name">
+
+                                                <a href="single-product.html">
+
+                                                    <img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/cart2.jpg" alt="">
+
+                                                    <span>How We'll Live on Mars</span>
+
+                                                </a>
+
+                                            </td>
+
+                                            <td class="product-price">
+
+                                                <p class="price">$119.00</p>
+
+                                            </td>
+
+                                            <td>
+
+                                                <div class="quantity">
+
+                                                    <input type="text" value="1" title="Qty" class="qty" size="4">
+
+                                                </div>
+
+                                            </td>
+
+                                            <td class="product-subtotal">
+
+                                                <p class="price">$119.00</p>
+
+                                            </td>
+
+                                        </tr>*@
+
+
+                                        <tr>
+
+                                            <td class="product-action" colspan="5">
+
+                                                @*<input type="text" placeholder="Coupon code" class="pull-left">
+
+                                                    <input type="button" value="Apply Coupon" class="button primary rounded pull-left">*@
+
+                       <!--    button modifier  -->                         @*<input type="button" value="Modifier Panier" class="button primary rounded pull-right">*@
+                                               <br />
+                                          
+                                                @*<a href="/Facture/PanierFacture" class="button pink rounded large animation-element fade-right"> Facture </a>*@
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            
+                        </form>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="cart-collaterals">
+
+                            <h2> Facture  :</h2>
+
+                            <table>
+
+                                <tbody>
+
+                                    <tr class="cart-subtotal">
+
+                                        <th> Prix :</th>
+
+                                        <td>       @Session["Prix"].ToString()  $</td> 
+                                    </tr>
+
+                                    <tr class="shipping">
+
+                                        <th>Client  :</th>
+                                        <td>  @Session["UserId"].ToString()</td>
+                                        <td>
+
+                                            
+
+
+                                            @*<a class="shipping-calculator-button" href="#">Calculate Shipping</a>*@
+
+
+                                            @*<form action="#" method="get" accept-charset="utf-8">
+
+                                                <div class="selectbox">
+
+                                                    <select name="country">
+
+                                                        <option>Select a country...</option>
+
+                                                        <option value="vietnam">Vietnam</option>
+
+                                                        <option value="us">US</option>
+
+                                                        <option value="uk">UK</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+                                                <input type="text" placeholder="State / country">
+
+
+                                                <input type="text" placeholder="Post Code / Zip">
+
+
+                                                <input type="button" value="Update Totals" class="button primary rounded">
+
+                                            </form>*@
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr class="order-total">
+
+                                        <th>Total :</th> 
+
+
+                                        <td>     @Session["Total"].ToString()   $</td>  
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td> TVA  : </td>
+                                        <td> 0.2 $</td>
+
+                                    </tr>
+
+                                    <tr><td>   Montant   : </td></tr>
+                                </tbody>
+
+                            </table>
+
+                            <a class="button large full rounded proceed-checkout" href="#"> Exporter Facture en PDF  <i class="fa fa-long-arrow-right"></i></a>
+
+                        </div> 
+
+                    </div>
+
+                </div><!-- .row -->
+
+            </main><!-- .site-main -->
+
+</div><!-- .row -->
+
+</div><!-- .container -->
+
+</div>
+}

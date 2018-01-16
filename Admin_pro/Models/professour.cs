@@ -17,7 +17,7 @@ namespace Admin_pro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public professour()
         {
-            this.Formation = new HashSet<Formation>();
+            this.Formations = new HashSet<Formation>();
         }
     
         public int id_prof { get; set; }
@@ -29,6 +29,6 @@ namespace Admin_pro.Models
         public string domaine { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Formation> Formation { get; set; }
+        public virtual ICollection<Formation> Formations { get; set; }
     }
 }

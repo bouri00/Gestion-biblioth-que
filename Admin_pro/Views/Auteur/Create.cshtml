@@ -1,0 +1,81 @@
+﻿
+
+
+@model Admin_pro.ViewModels.AuteurViewModels
+
+@{
+    Layout = null;
+}
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="MymodalAT">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"> Ajouter Auteur  :</h4>
+            </div>
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Auteur/Create" method="post">
+                <div class="modal-body">
+
+                    @Html.HiddenFor(x => x.id_Auteur)
+                  
+                    <div class="form-group">
+
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Nom  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.nom, new { @placeholder = "Caractere", type = "text", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            prenom  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.prenom, new { @placeholder = "caractere", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Nationalite  : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Nationalite, new { @placeholder = "caractere",Type="varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @*@Html.DropDownList("id_Auteur", (SelectList)Admin_pro.Models.BD_Listes.Drop_NatioAut, "Auteur", new { @class = "form-@*control col-md-7 col-xs-12" })*@
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Date decesion : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.date_deces, new { @placeholder = "caractere",Type="date", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"> Enregistrer </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+@Model Admin_pro.ViewModels.Auteur
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="Mymodaledit">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"> Supprimer Auteur :</h4>
+            </div>
+            @*<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Etudiant/Delete?num_etudiant=@Model.num_etudiant&confi=true" method="post">
+                @Html.HiddenFor(x => x.num_etudiant)*@
+            <div class="modal-body">
+                Vous Voulez Vraiment Supprimer Auteur ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,393 @@
+﻿    @model IEnumerable<Library_And_Education.Models.Ouvrage>
+
+<title>course</title>
+
+
+<div id="content" class="site-content courses-content">
+
+    <div class="page-title parallax-window" data-parallax="scroll" data-image-src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/courses-title.jpg">
+
+        <div class="container">
+
+            <h1> Liste des ouvrages</h1>
+
+            <div class="breadcrumb">
+
+                <ul>
+
+                    <li><a href="#">Home</a></li>
+
+                    <li><span class="current">Courses</span></li>
+
+                </ul>
+
+            </div><!-- .breadcrumb -->
+
+        </div><!-- .container -->
+
+    </div><!-- .page-title -->
+
+
+    <div class="search-by-cat">
+
+        <form action="#" method="get">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <div class="selectbox">
+
+                            <select>
+
+                                <option>Select Course Categories</option>
+
+                                <option value="Business">Business</option>
+
+                                <option value="Technology">Technology</option>
+
+                                <option value="Medicine">Medicine</option>
+
+                                <option value="Language">Language</option>
+
+                                <option value="Biological">Biological</option>
+
+                                <option value="Architecture">Architecture</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <input type="text" placeholder="Enter Keyword">
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <input type="submit" value="Find Course" class="button primary rounded large full">
+
+                    </div>
+
+                </div>
+
+            </div><!-- .container -->
+
+        </form>
+
+    </div><!-- .search-by-cat -->
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <main id="main" class="site-main col-md-9">
+
+                <div class="sort clearfix">
+
+                    <form action="#" class="ordering pull-left">
+
+                        <div class="selectbox">
+
+                            <select class="orderby" name="orderby">
+
+                                <option value="menu_order">Default sorting</option>
+
+                                <option value="popularity">popularity</option>
+
+                                <option value="rating">average rating</option>
+
+                                <option value="date">newness</option>
+
+                                <option value="price">price: low to high</option>
+
+                                <option value="price-desc">price: high to low</option>
+
+                            </select>
+
+                        </div>
+
+                    </form>
+
+
+                    <div class="style-switch pull-right clearfix">
+
+                        <a class="active" href="#" data-view="grid"><i class="fa fa-th"></i></a>
+
+                        <a href="#" data-view="list"><i class="fa fa-th-list"></i></a>
+
+                    </div>
+
+                </div><!-- .sort -->
+
+
+                <div class="courses layout column-3">
+                @foreach (var pp in Model)
+                {
+                    <div class="course">
+
+                        <div class="course-inner shadow">
+
+                            <div class="course-thumb">
+
+                                <a class="mini-zoom" href="#">
+                                    @{
+                                        var imgUrl = " http://localhost:53211" + @pp.Photo;
+                                        
+
+                                    }
+                                    <img src="@imgUrl" style="width: 150px; height:200px" alt="">
+
+                                 <img class="img-list" src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/course-list1.jpg" alt="">
+                                   
+                                </a>
+
+                            </div><!-- .course-thumb -->
+
+
+                            <div class="course-info">
+
+                                <span class="course-cat"><a href="#">@pp.Type</a></span>
+
+
+                                @*<h3 class="course-title"><a href="single-course.html">The Basic Online Marketing: Reach, Engage, Convert</a></h3>*@
+                                <h3 class="course-title"><a href="#">@pp.titre</a></h3>
+
+                                <div class="course-desc">
+
+                                    <p>Duis gravida tempus imperdiet. Vivamus elit vel consequat elementum. Cras consequat lorem non orci sagittis, eget volutpat neque imperdiet. Nam auctor nisi vitae enim accumsan, ac dignissim tortor consequat.</p>
+
+                                </div><!-- .course-desc -->
+
+
+                                <div class="course-author">
+
+ <!--   ENTRER ICI Image Auteur   -->             <a href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/user7.jpg" alt=""></a>
+                                @*<a href="#"><img src="@pp.Photo" alt=""</a>*@
+
+                                    <span>by  <a href="#"> </a></span>
+
+                                </div><!-- .course-author -->
+
+                                <a class="button rounded primary add-to-cart-button" href="~/Acheter/Acheter_Ouvrage?id_ouvrage=@pp.id_ouvrage"><i class="fa fa-shopping-bag"></i> Acheter </a>
+                            <br />
+                                @*<div> <a class="button rounded primary add-to-cart-button" href="#"><i class="fa fa-shopping-bag"></i> Emprunter </a></div>*@
+                            
+                                <div class="course-meta">
+
+                                    <ul>
+
+                                        <li>
+
+                                            <div class="star-rating">
+
+                                                <span style="width:80%"></span>
+
+                                            </div>
+
+                                        </li>
+
+                                        <li><i class="fa fa-users"></i> 2</li>
+
+                                        <li><a href="#"><i class="fa fa-comment"></i> 5</a></li>
+
+                                    </ul>
+
+                                </div><!-- .course-meta -->
+
+                            </div><!-- .course-info -->
+
+                        </div><!-- .course-inner -->
+
+                    </div>
+                                        }
+                    <!-- .course -->
+
+
+                   
+
+                </div><!-- .courses -->
+
+
+                <nav class="pagination">
+
+                    <ul>
+
+                        <li class="prev"><a href="#">Previous</a></li>
+
+                        <li><span class="current">1</span></li>
+
+                        <li><a href="#">2</a></li>
+
+                        <li><a href="#">3</a></li>
+
+                        <li><a href="#">4</a></li>
+
+                        <li><a href="#">5</a></li>
+
+                        <li><span>...</span></li>
+
+                        <li><a href="#">68</a></li>
+
+                        <li class="next"><a href="#">Next</a></li>
+
+
+                    </ul>
+
+
+                </nav>
+
+            </main><!-- .site-main -->
+
+
+            <div id="sidebar" class="sidebar col-md-3">
+
+                <aside class="widget">
+
+                    <h3 class="widget-title">Book Categories</h3>
+
+                    <ul>
+
+                        <li><a href="#">Business Books</a></li>
+
+                        <li><a href="#">Technology Books</a></li>
+
+                        <li><a href="#">Medicine Books</a></li>
+
+                        <li><a href="#">Language Books</a></li>
+
+                        <li><a href="#">Biological Books</a></li>
+
+                        <li><a href="#">Architecture Books</a></li>
+
+                    </ul>
+
+                </aside><!-- .widget -->
+
+
+                <aside class="widget courses-widget">
+
+                    <h3 class="widget-title">Popular courses</h3>
+
+                    <div class="courses">
+
+                        <ul>
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/course-wd1.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">The Secret to Making Money by starting a small business.</a></h4>
+
+                                    <span><i class="fa fa-users"></i> 2289</span>
+
+                                </div>
+
+                            </li>
+
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/course-wd2.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">Landscape Architecture, and Urban Planning</a></h4>
+
+                                    <span><i class="fa fa-users"></i> 1762</span>
+
+                                </div>
+
+                            </li>
+
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/course-wd3.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">Lesson english how to write a paragraph (writing)</a></h4>
+
+                                    <span><i class="fa fa-users"></i> 1226</span>
+
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                    </div><!-- .widget -->
+
+                </aside><!-- .widget -->
+
+
+                <aside class="widget blog-widget">
+
+                    <h3 class="widget-title">Latest News</h3>
+
+                    <div class="courses">
+
+                        <ul>
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/news1.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">Top 10 universities have the best quality</a></h4>
+
+                                </div>
+
+                            </li>
+
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/news2.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">Back to school with courses of Universum</a></h4>
+
+                                </div>
+
+                            </li>
+
+
+                            <li>
+
+                                <a class="thumb" href="#"><img src="~/UNIVERSUM/itcthemes.com/demo/Universum/html/images/placeholder/news3.jpg" alt=""></a>
+
+                                <div class="info">
+
+                                    <h4><a href="#">Research works of students about to be start</a></h4>
+
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                    </div><!-- .widget -->
+
+                </aside><!-- .blog-widget -->
+
+            </div><!-- .sidebar -->
+
+        </div><!-- .row -->
+
+    </div><!-- .container -->
+
+</div><!-- .site-content -->

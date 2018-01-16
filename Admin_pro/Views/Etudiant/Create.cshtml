@@ -1,36 +1,32 @@
 ﻿@model Admin_pro.ViewModels.EtudiantViewModel
-
 @{
+
     Layout = null;
+
+
 }
 
-
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="MymodalEtudiant">
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="Mymodaleet">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel"> Ajouter Etudiant  :</h4>
+                <h4 class="modal-title" id="myModalLabel">   Etudiant  : </h4>
             </div>
-            <div class="modal-body">
-                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Etudiant/Create" method="post">
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                            Numero D'inscription  : <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.num_etudiant, new { @placeholder = "num_etudiant", @class = "form-control col-md-7 col-xs-12",@required = "required" })
-                        </div>
-                    </div>
 
+            <div class="modal-body">
+
+
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Etudiant/Create" method="post">
+                   
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                             Nom  : <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.nom, new { @placeholder = "Nom", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @Html.TextBoxFor(x => x.nom, new { @placeholder = "Nom", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,7 +34,7 @@
                             Prenom  : <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.prenom, new { @placeholder = "Prenom", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @Html.TextBoxFor(x => x.prenom, new { @placeholder = "Prenom", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
                         </div>
                     </div>
 
@@ -47,48 +43,66 @@
                             Date Naissance  : <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.date_naissance, new { @placeholder = "date_naissance", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @Html.TextBoxFor(x => x.date_naissance, new { @placeholder = "date_naissance", Type = "date", @class = "form-control col-md-7 col-xs-12", @required = "required" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
                             Téléphone  : <span class="required">*</span>
                         </label>
+
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.telephone, new { @placeholder = "telephone", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @Html.TextBoxFor(x => x.telephone, new { @placeholder = "telephone", Type = "tele", @class = "form-control col-md-7 col-xs-12", @required = "required" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                            Code Postal  : <span class="required">*</span>
-
+                            Adresse : <span class="required">*</span>
                         </label>
+
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @Html.TextBoxFor(x => x.code_postal, new { @placeholder = "code_postal", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            @Html.TextBoxFor(x => x.adresse, new { @placeholder = "adresse", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                            Pays  : <span class="required">*</span>
+                        </label>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.Pays, new { @placeholder = "pays", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                           Ville  : <span class="required">*</span>
+                        </label>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.telephone, new { @placeholder = "ville", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+
+                            @*@Html.DropDownList("num_etudiant", (SelectList)Admin_pro.Models.BD_Listes.villeetd, "Etudiant", new { @class = "form-control" })*@
                         </div>
                     </div>
 
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                Code Postal  : <span class="required">*</span>
 
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.TextBoxFor(x => x.code_postal, new { @placeholder = "code_postal", Type = "number" ,@class = "form-control col-md-7 col-xs-12", @required = "required" })
+                            </div>
+                        </div>
+</form>     </div> 
 
-
-
-                </form>
-            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               <button type="button" class="btn btn-primary">Save changes</button>
-
-          @*      <button class="btn btn-primary" onclick="new PNotify({
-    title: 'success',
-                                  text: 'Toutes les champs est bien Enregistrer',
-                                  type: 'success',
-                                  styling: 'bootstrap3'
-                              });">
-                   Save
-                </button>*@
-
-                </div>
+                <button type="button" class="btn btn-primary">Save changes</button>
+               
             </div>
+           
+        </div>    
         </div>
     </div>
 

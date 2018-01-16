@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "PanierCommande";
+}
+
+<h2>PanierCommande</h2>
+
+@if(Session["UserId"] != null )
+{
+    <h3>
+        Bienvenuu @Session["UserId"].ToString();
+    </h3>
+
+}

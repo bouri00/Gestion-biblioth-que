@@ -1,66 +1,119 @@
-﻿using System;
+﻿using Admin_pro.Models;
+using Admin_pro.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
-using Admin_pro.Models;
-using Admin_pro.ViewModels;
 
 namespace Admin_pro.Controllers
 {
     public class EtudiantController : Controller
     {
-
-
-        Manage_BooksEntities bd_librairie = new Manage_BooksEntities();
+        Manage_BooksEntities bdt = new Manage_BooksEntities();
       
 
+        // GET: Etudiant
         public ActionResult Etudiant()
         {
-            var list = bd_librairie.Etudiant.ToList();
+            var list = bdt.Etudiants.ToList();
             return View(list);
         }
-        [HttpGet]
-        public ActionResult Create()
-        {
-        EtudiantViewModel model = new EtudiantViewModel();
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult Create(EtudiantViewModel model)
+        public ActionResult Create(int? num_etudiant)
         {
-            bd_librairie.Etudiant.Add(new Models.Etudiant
+            EtudiantViewModel etd = new EtudiantViewModel();
+            if (num_etudiant != null)
             {
-                num_etudiant=model.num_etudiant,
-                nom = model.nom,
-                prenom = model.prenom,
-                adresse=model.adresse,
-                ville=model.ville,
-                telephone=model.telephone,
-                date_naissance=model.date_naissance,
-                code_postal=model.code_postal
 
-            });
-            bd_librairie.SaveChanges();
-            return View();
+                var objet_modifier = bdt.Etudiants.Where(x => x.num_etudiant == num_etudiant).First();
+                etd.num_etudiant = (int)objet_modifier.num_etudiant;
+                etd.nom = objet_modifier.nom;
+                etd.prenom = objet_modifier.prenom;
+                etd.ville = objet_modifier.ville;
+                etd.adresse = objet_modifier.adresse;
+                etd.code_postal = objet_modifier.code_postal;
+                etd.date_naissance = (DateTime)objet_modifier.date_naissance;
+                etd.Pays = objet_modifier.Pays;
+            }
+            return View(etd);
         }
-
-
-
-        public ActionResult Update()
+        [HttpPost]
+        public ActionResult Create(EtudiantViewModel mo)
         {
-            return View();
+
+            if (mo.num_etudiant != 0)
+            {
+
+                var objet_modifier = bdt.Etudiants.Where(x => x.num_etudiant == mo.num_etudiant).First();
+                objet_modifier.num_etudiant = mo.num_etudiant;
+                objet_modifier.nom = mo.nom;
+                objet_modifier.prenom = mo.prenom;
+                objet_modifier.ville = mo.ville;
+                objet_modifier.adresse = mo.adresse;
+                objet_modifier.code_postal = mo.code_postal;
+                objet_modifier.date_naissance = mo.date_naissance;
+                objet_modifier.Pays = mo.Pays;
+            }
+
+            else
+            {
+
+                bdt.Etudiants.Add(new Models.Etudiant
+                {
+                    num_etudiant = mo.num_etudiant,
+                    nom = mo.nom,
+                    prenom = mo.prenom,
+                    adresse = mo.adresse,
+                    ville = mo.ville,
+                    telephone = mo.telephone,
+                    date_naissance = mo.date_naissance,
+                    code_postal = mo.code_postal,
+                    Pays=mo.Pays
+
+                });
+            }
+            bdt.SaveChanges();
+            return RedirectToAction("Etudiant");
         }
-        public ActionResult Delete()
+        [HttpGet]
+        public ActionResult Delete(int? num_etudiant)
         {
-            return View();
+
+
+            EtudiantViewModel om = new EtudiantViewModel();
+            if (num_etudiant != null)
+            {
+
+                var objet_modifier = bdt.Etudiants.Where(x => x.num_etudiant == num_etudiant).First();
+                om.num_etudiant= objet_modifier.num_etudiant;
+
+
+            }
+
+            return View(om);
         }
-        public ActionResult Select()
+        [HttpPost]
+        public ActionResult Delete(int? num_etudiant, bool confi)
         {
-            return View();
+
+            if (num_etudiant != null)
+            {
+
+                var objet_modifier = bdt.Etudiants.Where(x => x.num_etudiant == num_etudiant).First();
+                bdt.Etudiants.Remove(objet_modifier);
+                bdt.SaveChanges();
+
+
+            }
+
+            return RedirectToAction("Etudiant");
         }
+
+
+
+
+
 
     }
 }

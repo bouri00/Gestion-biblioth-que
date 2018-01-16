@@ -13,7 +13,7 @@ namespace Admin_pro.Controllers
 
         public ActionResult Exemplaire()
         {
-            var lis = Exe.Exemplaire.ToList();
+            var lis = Exe.Exemplaires.ToList();
             return View(lis);
         }
 

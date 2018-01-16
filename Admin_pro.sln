@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin_pro", "Admin_pro\Admin_pro.csproj", "{418B3293-34ED-43A0-A1BF-1137E6D4E3EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin_pro.Tests", "Admin_pro.Tests\Admin_pro.Tests.csproj", "{F3670AD0-176B-4044-B723-0A87B736C2D6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library And Education", "Library And Education\Library And Education.csproj", "{6DB87932-464C-4569-94E5-0045521E17C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin_proTests", "Admin_proTests\Admin_proTests.csproj", "{50807497-A09A-4220-AECC-19D6BA9E9DB3}"
@@ -21,10 +19,6 @@ Global
 		{418B3293-34ED-43A0-A1BF-1137E6D4E3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{418B3293-34ED-43A0-A1BF-1137E6D4E3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{418B3293-34ED-43A0-A1BF-1137E6D4E3EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3670AD0-176B-4044-B723-0A87B736C2D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3670AD0-176B-4044-B723-0A87B736C2D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3670AD0-176B-4044-B723-0A87B736C2D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3670AD0-176B-4044-B723-0A87B736C2D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DB87932-464C-4569-94E5-0045521E17C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DB87932-464C-4569-94E5-0045521E17C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB87932-464C-4569-94E5-0045521E17C2}.Release|Any CPU.ActiveCfg = Release|Any CPU

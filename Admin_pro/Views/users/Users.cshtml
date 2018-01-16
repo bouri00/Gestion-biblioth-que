@@ -1,0 +1,111 @@
+﻿
+@model IEnumerable<Admin_pro.Models.Authentification>
+
+
+<div class="right_col" role="main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Liste User   : <small>Users</small></h2>
+
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                    <li>
+                        <!-- Large modal -->
+                        <button type="button" class="btn btn-primary BtnMymodaluser" data-toggle="modal" data-url="/users/Create">Nouveau</button>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                    
+                        <th>Nom Utilisateur </th>
+                        <th>Nom </th>
+                        <th> Prenom</th>
+                        <th> Email </th>
+                        <th> Roles</th>
+                        <th> Password</th>
+                        <th>Confirm Password</th>
+              <th> PhotoUser</th>
+                        <th> Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var us in Model)
+                    {
+                        <tr>
+                            <td>@us.User_Name</td>
+                            <td>@us.Name</td>
+                            <td> @us.prenom</td>
+                            <td> @us.Email</td>
+                            <td> @us.Roles</td>
+                            <td> @us.Password_cle</td>
+                            <td> @us.Confirmpassword</td>
+                            <td><img style="width: 100px; height:100px" src="@us.Photouser" /></td>
+                           
+
+                            <td>
+
+                                <button class="btn btn-primary btn-xs BtnMymodaluser" data-toggle="modal" data-url="/users/Create?User_Name=@us.User_Name"><i class="fa fa-folder"></i> Afficher </button>
+                                <button href="#" class="btn btn-info btn-xs BtnMymodaluser" data-toggle="modal" data-url="/users/Create?User_Name=@us.User_Name"><i class="fa fa-pencil"></i> Modifer </button>
+                                <button class="btn btn-danger btn-xs BtnMymodaluser" data-toggle="modal" data-url="/users/Delete?User_Name=@us.User_Name"><i class="fa fa-trash-o"></i> Supprimer </button>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+
+
+            </table>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<span id="Modal_Cruded">
+</span>
+
+<script>
+    $('.BtnMymodaluser').click(function () {
+        var url = $(this).attr('data-url');
+        $('#Modal_Cruded').html('');
+        $.get(url, function (data) {
+
+            $('#Modal_Cruded').html(data);
+            $('#Mymodaluser').modal('show');
+        });
+    });
+</script>
+
+
+
+
+
+

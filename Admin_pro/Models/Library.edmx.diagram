@@ -4,29 +4,42 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c87361ec98114c98aaba3cc52a7a27a2" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Auteur" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="Model.Authentification" Width="1.5" PointX="7.875" PointY="1.5" />
-        <EntityTypeShape EntityType="Model.Editeur" Width="1.5" PointX="0.75" PointY="4" />
-        <EntityTypeShape EntityType="Model.Etudiant" Width="1.5" PointX="3" PointY="7.5" />
-        <EntityTypeShape EntityType="Model.Exemplaire" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="Model.Mise_a_Jour" Width="1.5" PointX="5.25" PointY="0.875" />
-        <EntityTypeShape EntityType="Model.Ouvrage" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="Model.Type" Width="1.5" PointX="5.25" PointY="10" />
-        <EntityTypeShape EntityType="Model.Version_ouvrage" Width="1.5" PointX="3" PointY="1.125" />
+      <Diagram DiagramId="c87361ec98114c98aaba3cc52a7a27a2" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="Model.Acheter" PointX="12.75" PointY="10.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.appartient" PointX="5.25" PointY="11.75" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Auteur" PointX="0.75" PointY="1.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Authentification" PointX="12.75" PointY="6.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Commander" PointX="10" PointY="2.75" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Editeur" PointX="4.75" PointY="14.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Editeur1" PointX="0.75" PointY="5.125" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Etudiant" PointX="3" PointY="10.125" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Exemplaire" PointX="5.25" PointY="5.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Formation" PointX="10" PointY="11.625" Width="1.5" />
+        <EntityTypeShape EntityType="Model.InfoUser" PointX="12.75" PointY="2.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Inscription" PointX="0.75" PointY="14.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Mise_a_Jour" PointX="5.25" PointY="2.5" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Ouvrage" PointX="7.75" PointY="4.125" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Ouvrage1" PointX="3" PointY="3.875" Width="1.5" />
+        <EntityTypeShape EntityType="Model.professour" PointX="7.75" PointY="11.5" Width="1.5" />
+        <EntityTypeShape EntityType="Model.sysdiagram" PointX="2.75" PointY="14.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Type" PointX="0.75" PointY="9.25" Width="1.5" />
+        <EntityTypeShape EntityType="Model.Version_ouvrage" PointX="3" PointY="0.75" Width="1.5" />
+        <AssociationConnector Association="Model.FK_appartient_Ouvrage" />
+        <AssociationConnector Association="Model.FK_Ouvrage_Auteur1" />
+        <AssociationConnector Association="Model.FK_Commander_Ouvrage" />
         <AssociationConnector Association="Model.FK_Ouvrage_Editeur" />
+        <AssociationConnector Association="Model.FK_Ouvrage_Editeur1" />
+        <AssociationConnector Association="Model.FK_Ouvrage_Editeur2" />
         <AssociationConnector Association="Model.FK_Exemplaire_Etudiant" />
         <AssociationConnector Association="Model.FK_Exemplaire_Ouvrage" />
+        <AssociationConnector Association="Model.FK_Formation_professour" />
         <AssociationConnector Association="Model.FK_Mise_a_Jour_Ouvrage" />
         <AssociationConnector Association="Model.FK_Mise_a_Jour_Version_ouvrage" />
-        <AssociationConnector Association="Model.appartient" />
+        <AssociationConnector Association="Model.FK_Ouvrage_Ouvrage" />
+        <AssociationConnector Association="Model.FK_Ouvrage_Type1" />
         <AssociationConnector Association="Model.Ecrire" />
-        <EntityTypeShape EntityType="Model.Commande" Width="1.5" PointX="5.25" PointY="12.5" />
-        <EntityTypeShape EntityType="Model.Formation" Width="1.5" PointX="9.625" PointY="4" />
-        <EntityTypeShape EntityType="Model.InfoUser" Width="1.5" PointX="7.375" PointY="7.75" />
-        <EntityTypeShape EntityType="Model.professour" Width="1.5" PointX="7.375" PointY="4" />
-        <AssociationConnector Association="Model.FK_Commande_Etudiant" />
-        <AssociationConnector Association="Model.FK_Formation_professour" />
+        <EntityTypeShape EntityType="Model.Reservation" PointX="10" PointY="7.125" Width="1.5" />
+        <AssociationConnector Association="Model.FK_Reservation_Ouvrage" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

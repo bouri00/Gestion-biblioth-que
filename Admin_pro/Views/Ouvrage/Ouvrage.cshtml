@@ -1,7 +1,5 @@
 ﻿
 
-
-
 @model IEnumerable<Admin_pro.Models.Ouvrage>
 
 
@@ -9,11 +7,16 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Liste d'ouvrage : <small>Users</small></h2>
+                <h2> ***********       Liste Du Ouvrage    :      ***********</h2>
+
+
+
+
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
@@ -28,42 +31,98 @@
                     <li>
                         <a class="close-link"><i class="fa fa-close"></i></a>
                     </li>
+                    <li>
+                        <!-- Large modal -->
+                        <button type="button" class="btn btn-primary BtnMymodalOuvrage" data-toggle="modal" data-url="/Ouvrage/Create">Nouveau</button>
+                    </li>
+
                 </ul>
                 <div class="clearfix"></div>
             </div>
-           <!-- <div class="x_content">
-                <p class="text-muted font-13 m-b-30">
-                    The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                </p>-->
-                <table id="datatable-buttons" class="table table-striped table-bordered">
+        
+
+            <table id="datatable-buttons" class="table table-striped table-bordered">
 
 
-                    <thead>
+                <thead>
+                    <tr>
+                        <th>Numero Ouvrage : </th>
+
+                        <th>Titre </th>
+
+                        <th>Nombre page </th>
+
+                        <th> Quantite </th>
+
+                        <th> Nom Editeur</th>
+
+                        <th>Prenom Editeur </th>
+
+                 
+                        <th> Type Ouvrage </th>
+
+                        <th> Photo</th>
+
+                        <th> Action</th>
+                     
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var pp in Model)
+                    {
                         <tr>
-                            <th>Numero Ouvrage  </th>
-                            <th>Titre</th>
-                            <th>Nombre de Page </th>
-                           
+                            <td>@pp.id_ouvrage</td>
+                            <td>@pp.titre</td>
+                            <td> @pp.nb_pages</td>
+                            <td>@pp.Quantite</td>
+                            
+                            <td>@pp.nomE  </td>
+                            
+                             <td>@pp.prenomE </td>
+                     
+                           <td> @pp.Type </td>
+
+                            <td><img style="width: 100px; height:100px" src="@pp.Photo" /></td>
+                     
+                            <td>
+
+                                <button class="btn btn-primary btn-xs BtnMymodalOuvrage" data-toggle="modal" data-url="/Ouvrage/Create?id_ouvrage=@pp.id_ouvrage"><i class="fa fa-folder"></i> Afficher </button>
+                                <button class="btn btn-info btn-xs BtnMymodalOuvrage" data-toggle="modal" data-url="/Ouvrage/Create?id_ouvrage=@pp.id_ouvrage"><i class="fa fa-pencil"></i> Modifer </button>
+                                <button class="btn btn-danger btn-xs BtnMymodalOuvrage" data-toggle="modal" data-url="/Ouvrage/Delete?id_ouvrage=@pp.id_ouvrage"><i class="fa fa-trash-o"></i> Supprimer </button>
+                            </td>
                         </tr>
-                    </thead>
 
-                    <tbody>
+                    }
+                </tbody>
 
-                        @foreach (var ll in Model)
-                        {
 
-                            <tr>
-                                <td>@ll.id_ouvrage </td>
-                                <td>@ll.titre</td>
-                                <td> @ll.nb_pages</td>
-                              
+            </table>
 
-                            </tr>
+            
 
-                        }
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
+</div>
+
+
+<span id="Modal_CrudOuvrage">
+</span>
+
+<script>
+    $('.BtnMymodalOuvrage').click(function () {
+        var url = $(this).attr('data-url');
+        $('#Modal_CrudOuvrage').html('');
+        $.get(url, function (data) {
+
+            $('#Modal_CrudOuvrage').html(data);
+            $('#Mymodal').modal('show');
+        });
+    });
+</script>
+
+
+
+
 

@@ -14,14 +14,14 @@ namespace Admin_pro.Models
     
     public partial class Exemplaire
     {
-        public string num_exemplaire { get; set; }
+        public int num_exemplaire { get; set; }
         public string titre { get; set; }
         public Nullable<int> nb_pages { get; set; }
         public Nullable<int> num_etudiant { get; set; }
-        public string id_ouvrage { get; set; }
+        public Nullable<int> id_ouvrage { get; set; }
         public string Categorie { get; set; }
     
         public virtual Etudiant Etudiant { get; set; }
-        public virtual Ouvrage Ouvrage { get; set; }
+        public virtual Ouvrage1 Ouvrage { get; set; }
     }
 }

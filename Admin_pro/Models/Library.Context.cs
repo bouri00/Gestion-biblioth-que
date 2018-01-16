@@ -25,18 +25,25 @@ namespace Admin_pro.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Auteur> Auteur { get; set; }
-        public virtual DbSet<Authentification> Authentification { get; set; }
-        public virtual DbSet<Editeur> Editeur { get; set; }
-        public virtual DbSet<Etudiant> Etudiant { get; set; }
-        public virtual DbSet<Exemplaire> Exemplaire { get; set; }
+        public virtual DbSet<Acheter> Acheters { get; set; }
+        public virtual DbSet<appartient> appartients { get; set; }
+        public virtual DbSet<Auteur> Auteurs { get; set; }
+        public virtual DbSet<Authentification> Authentifications { get; set; }
+        public virtual DbSet<Commander> Commanders { get; set; }
+        public virtual DbSet<Editeur> Editeurs { get; set; }
+        public virtual DbSet<Editeur1> Editeurs1 { get; set; }
+        public virtual DbSet<Etudiant> Etudiants { get; set; }
+        public virtual DbSet<Exemplaire> Exemplaires { get; set; }
+        public virtual DbSet<Formation> Formations { get; set; }
+        public virtual DbSet<InfoUser> InfoUsers { get; set; }
+        public virtual DbSet<Inscription> Inscriptions { get; set; }
         public virtual DbSet<Mise_a_Jour> Mise_a_Jour { get; set; }
-        public virtual DbSet<Ouvrage> Ouvrage { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
+        public virtual DbSet<Ouvrage> Ouvrages { get; set; }
+        public virtual DbSet<Ouvrage1> Ouvrages1 { get; set; }
+        public virtual DbSet<professour> professours { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<Version_ouvrage> Version_ouvrage { get; set; }
-        public virtual DbSet<Commande> Commande { get; set; }
-        public virtual DbSet<Formation> Formation { get; set; }
-        public virtual DbSet<InfoUser> InfoUser { get; set; }
-        public virtual DbSet<professour> professour { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     }
 }

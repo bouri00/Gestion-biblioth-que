@@ -1,0 +1,37 @@
+﻿
+
+
+
+
+@model Admin_pro.ViewModels.ReservationViewModel
+
+@{
+    Layout = null;
+}
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="CP">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"> Supprimer Reservation : </h4>
+            </div>
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Reservation/Delete?id_reservation=@Model.id_reservation&confi=true" method="post">
+
+                @Html.HiddenFor(x => x.id_reservation)
+
+                <div class="modal-body">
+                    Vous Voulez Vraiment Supprimer Ce Reservation   ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">fermer</button>
+                    <button type="submit" class="btn btn-primary"> Valider</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

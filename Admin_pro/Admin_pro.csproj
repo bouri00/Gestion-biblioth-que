@@ -74,12 +74,17 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.TraceListener, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.TraceListener.2.2.0\lib\net45\Microsoft.ApplicationInsights.TraceListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -200,51 +205,63 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ADpageCommerceController.cs" />
     <Compile Include="Controllers\AuteurController.cs" />
+    <Compile Include="Controllers\CommanderController.cs" />
+    <Compile Include="Controllers\CompteController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\datepresentationController.cs" />
+    <Compile Include="Controllers\EditeurController.cs" />
     <Compile Include="Controllers\EreurController.cs" />
-    <Compile Include="Controllers\etdController.cs" />
     <Compile Include="Controllers\EtudiantController.cs" />
     <Compile Include="Controllers\ExemplaireController.cs" />
     <Compile Include="Controllers\FormValidationController.cs" />
-    <Compile Include="Controllers\GlyphiconsController.cs" />
-    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IconController.cs" />
     <Compile Include="Controllers\InfouserController.cs" />
-    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ListeFormationController.cs" />
     <Compile Include="Controllers\ListeutilisateurController.cs" />
     <Compile Include="Controllers\listprofController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyDataBaseEntities.cs" />
     <Compile Include="Controllers\OthershertController.cs" />
     <Compile Include="Controllers\OuvrageController.cs" />
-    <Compile Include="Controllers\OuvrageViewModel.cs" />
     <Compile Include="Controllers\pagedaccueilController.cs" />
     <Compile Include="Controllers\ProjectdetailController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
+    <Compile Include="Controllers\RegistreUserController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\table_dynamiqueController.cs" />
-    <Compile Include="Controllers\TabLoginController.cs" />
+    <Compile Include="Controllers\Test2Controller.cs" />
     <Compile Include="Controllers\testController.cs" />
     <Compile Include="Controllers\UIElementcalendrieController.cs" />
-    <Compile Include="Controllers\UserProfilController.cs" />
+    <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Acheter.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\appartient.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Auteur.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Authentification.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Commande.cs">
+    <Compile Include="Models\Authentifier.cs" />
+    <Compile Include="Models\AuthentifierModel.cs" />
+    <Compile Include="Models\BD_Listes.cs" />
+    <Compile Include="Models\Commander.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Editeur.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Editeur1.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Etudiant.cs">
@@ -256,10 +273,40 @@
     <Compile Include="Models\Formation.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InfoUser.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Inscription.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mise_a_Jour.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ouvrage.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ouvrage1.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\professour.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reservation.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\Version_ouvrage.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Acheter.cs" />
+    <Compile Include="ViewModels\AuteurViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Library.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -276,30 +323,25 @@
       <DependentUpon>Library.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Mise_a_Jour.cs">
-      <DependentUpon>Library.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ouvrage.cs">
-      <DependentUpon>Library.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\professour.cs">
-      <DependentUpon>Library.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Type.cs">
-      <DependentUpon>Library.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Version_ouvrage.cs">
-      <DependentUpon>Library.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AuteurViewModels.cs" />
+    <Compile Include="ViewModels\AuthentificationViewModel.cs" />
+    <Compile Include="ViewModels\AuthentifierViewModel.cs" />
+    <Compile Include="ViewModels\CommandeViewModel.cs" />
+    <Compile Include="ViewModels\EditeurViewModel.cs" />
     <Compile Include="ViewModels\EtudiantViewModel.cs" />
     <Compile Include="ViewModels\ExemplaireViewModel.cs" />
-    <Compile Include="ViewModels\OuvrageViewModels.cs" />
+    <Compile Include="ViewModels\InfoUsersViewModel.cs" />
+    <Compile Include="ViewModels\loginViewModel.cs" />
+    <Compile Include="ViewModels\OuvrageViewModel.cs" />
+    <Compile Include="ViewModels\CommanderViewModel.cs" />
+    <Compile Include="ViewModels\ReservationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DSC_0890 a.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="gentelella-master\build\css\custom.css" />
@@ -3745,11 +3787,39 @@
       <DependentUpon>Library.edmx</DependentUpon>
       <LastGenOutput>Library.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Library.edmx.sql" />
     <Content Include="Models\Library.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Library.edmx</DependentUpon>
       <LastGenOutput>Library.cs</LastGenOutput>
     </Content>
+    <Content Include="modernizr.custom.min.html" />
+    <Content Include="PhotoUser\academy.jpg" />
+    <Content Include="PhotoUser\Copie de learn-trial.jpg" />
+    <Content Include="PhotoUser\Copie de team4.png" />
+    <Content Include="PhotoUser\event5.jpg" />
+    <Content Include="PhotoUser\event6.jpg" />
+    <Content Include="PhotoUser\image2.jpg" />
+    <Content Include="PhotoUser\image8.jpg" />
+    <Content Include="PhotoUser\instargram2.jpg" />
+    <Content Include="PhotoUser\instargram3.jpg" />
+    <Content Include="PhotoUser\learn-trial.jpg" />
+    <Content Include="PhotoUser\slider15.jpg" />
+    <Content Include="PhotoUser\slider16.jpg" />
+    <Content Include="PhotoUser\team1.png" />
+    <Content Include="PhotoUser\team2.png" />
+    <Content Include="PhotoUser\team3.png" />
+    <Content Include="PhotoUser\team4.png" />
+    <Content Include="PhotoUser\team5.png" />
+    <Content Include="PhotoUser\team6.png" />
+    <Content Include="PhotoUser\team7.png" />
+    <Content Include="PhotoUser\team8.png" />
+    <Content Include="PhotoUser\user12.jpg" />
+    <Content Include="PhotoUser\user13.jpg" />
+    <Content Include="PhotoUser\user14.jpg" />
+    <Content Include="PhotoUser\user15.png" />
+    <Content Include="PhotoUser\user2.jpg" />
+    <Content Include="PhotoUser\video3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -4618,6 +4688,7 @@
     <Content Include="Models\Library.edmx.diagram">
       <DependentUpon>Library.edmx</DependentUpon>
     </Content>
+    <Content Include="minif92b.php" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4631,7 +4702,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Contact\st1.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -4679,9 +4752,6 @@
     <Content Include="Views\Projet\Projet.cshtml" />
     <Content Include="Views\Projectdetail\Projectdetail.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\Icon\Icones.cshtml" />
-    <Content Include="Views\Invoice\Invoice.cshtml" />
-    <Content Include="Views\Glyphicons\Glyphicons.cshtml" />
     <Content Include="Views\Ereur\Ereur404.cshtml" />
     <Content Include="Views\FormValidation\FormValidation.cshtml" />
     <Content Include="Views\Login\Login2.cshtml" />
@@ -4694,13 +4764,40 @@
     <Content Include="Views\Auteur\Auteur.cshtml" />
     <Content Include="Views\listprof\listprof.cshtml" />
     <Content Include="Views\Etudiant\Create.cshtml" />
-    <Content Include="Views\Ouvrage\formouvrage.cshtml" />
     <Content Include="Views\Ouvrage\Create.cshtml" />
     <Content Include="Views\Exemplaire\Create.cshtml" />
+    <Content Include="Views\Auteur\Create.cshtml" />
+    <Content Include="Views\Ouvrage\Delete.cshtml" />
+    <Content Include="Views\Etudiant\Delete.cshtml" />
+    <Content Include="Views\Auteur\Delete.cshtml" />
+    <Content Include="Views\Editeur\Editeur.cshtml" />
+    <Content Include="Views\Editeur\Create.cshtml" />
+    <Content Include="Views\users\Users.cshtml" />
+    <Content Include="Views\users\Create.cshtml" />
+    <Content Include="Views\RegistreUser\RegistreUser.cshtml" />
+    <Content Include="Views\Compte\Authentification.cshtml" />
+    <Content Include="Views\users\Delete.cshtml" />
+    <Content Include="Views\Editeur\Delete.cshtml" />
+    <Content Include="Views\Commander\Acheter.cshtml" />
+    <Content Include="Views\Commander\Create.cshtml" />
+    <Content Include="Views\Commander\Delete.cshtml" />
+    <Content Include="Views\Mailbox\Mail.cshtml" />
+    <Content Include="Views\Connexion\login.cshtml" />
+    <Content Include="Views\Connexion\Home.cshtml" />
+    <Content Include="Views\Test2\Index.cshtml" />
+    <Content Include="Views\Login\accueil.cshtml" />
+    <Content Include="Views\Login\mapage.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\Reservation\Create.cshtml" />
+    <Content Include="Views\Reservation\Delete.cshtml" />
+    <Content Include="Views\Reservation\reserve.cshtml" />
+    <Content Include="Views\Login\Logintest.cshtml" />
+    <Content Include="Views\Login\Authentification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\etd\" />
+    <Folder Include="csslg\" />
+    <Folder Include="img_ouvrage\" />
     <Folder Include="Views\TabLogin\" />
   </ItemGroup>
   <ItemGroup>

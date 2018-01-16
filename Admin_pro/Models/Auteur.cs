@@ -17,16 +17,19 @@ namespace Admin_pro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Auteur()
         {
-            this.Ouvrage = new HashSet<Ouvrage>();
+            this.Ouvrages = new HashSet<Ouvrage1>();
+            this.Ouvrages1 = new HashSet<Ouvrage1>();
         }
     
-        public string id_Auteur { get; set; }
+        public int id_Auteur { get; set; }
         public string nom { get; set; }
         public string prenom { get; set; }
         public string Nationalite { get; set; }
         public Nullable<System.DateTime> date_deces { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ouvrage> Ouvrage { get; set; }
+        public virtual ICollection<Ouvrage1> Ouvrages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ouvrage1> Ouvrages1 { get; set; }
     }
 }

@@ -1,0 +1,101 @@
+﻿
+@model Admin_pro.ViewModels.ReservationViewModel
+
+
+@{
+    Layout = null;
+}
+
+
+
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="CP">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">  Ajouter Nouveau Resevation     :</h4>
+            </div>
+
+            @using (Html.BeginForm("Create", "Reservation", FormMethod.Post, new { enctype = "multipart/form-data", id = "demo-form2", @class = "form-horizontal form-label-left" }))
+            {
+
+                <div class="modal-body">
+
+                    @Html.HiddenFor(x => x.id_reservation)
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" name="quantite" for="first-name">
+                            Quantite: <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.quantite, new { @placeholder = "quantite", Type = "number", id = "number", name = "number", @class = "form-control col-md-7 col-xs-12 ", @required = "required"  })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Description   : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.description, new { @placeholder = "description", Type = "varchar", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Date Reservation   : <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBoxFor(x => x.datereservation, new { @placeholder = "date reserver", Type = "date", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <labl class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            Date Envoi : <span class="required">*</span>
+                        </labl>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            @*@Html.DropDownList("id_type", (SelectList)Admin_pro.Models.BD_Listes.typeouvrage, "Type1", new { @class = "form-control" })*@
+                            @Html.TextBoxFor(x => x.date_envoi, new { @placeholder = "DateEnvoi", Type = "date", @class = "form-control col-md-7 col-xs-12", @required = "required" })
+
+
+                        </div>
+                    </div>
+               
+
+
+
+                
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default " data-dismiss="modal" >Fermer</button>
+                        <button type="submit" class="btn btn-primary btn btn-default source" onclick="new PNotify({
+                                  title: 'Regular Success',
+                                  text: 'That thing that you were trying to do worked!',
+                                  type: 'success',
+                                  styling: 'bootstrap3'
+                              });">Valider</button>
+
+                        <button class="btn btn-default source" onclick="new PNotify({
+                                  title: 'Regular Success',
+                                  text: 'That thing that you were trying to do worked!',
+                                  type: 'success',
+                                  styling: 'bootstrap3'
+                              });">
+                            Success </button>
+
+
+</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+   <!-- validator -->
+<script src="~/gentelella-master/vendors/validator/validator.js"></script>

@@ -14,11 +14,11 @@ namespace Admin_pro.Models
     
     public partial class Mise_a_Jour
     {
-        public string id_ouvrage { get; set; }
+        public int id_ouvrage { get; set; }
         public string id_version { get; set; }
         public Nullable<System.DateTime> date_miseajour { get; set; }
     
-        public virtual Ouvrage Ouvrage { get; set; }
+        public virtual Ouvrage1 Ouvrage { get; set; }
         public virtual Version_ouvrage Version_ouvrage { get; set; }
     }
 }

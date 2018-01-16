@@ -17,13 +17,13 @@ namespace Admin_pro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Type()
         {
-            this.Ouvrage = new HashSet<Ouvrage>();
+            this.Ouvrages = new HashSet<Ouvrage1>();
         }
     
-        public string id_type { get; set; }
+        public int id_type { get; set; }
         public string libelle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ouvrage> Ouvrage { get; set; }
+        public virtual ICollection<Ouvrage1> Ouvrages { get; set; }
     }
 }

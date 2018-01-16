@@ -1,0 +1,1284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acheters">
+          <Key>
+            <PropertyRef Name="Etudiant" />
+            <PropertyRef Name="Ouvrage" />
+          </Key>
+          <Property Name="Etudiant" Type="int" Nullable="false" />
+          <Property Name="Ouvrage" Type="int" Nullable="false" />
+          <Property Name="date_Acheter" Type="datetime" />
+        </EntityType>
+        <EntityType Name="appartients">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_ouvrage" Type="int" Nullable="false" />
+          <Property Name="id_type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Auteurs">
+          <Key>
+            <PropertyRef Name="id_Auteur" />
+          </Key>
+          <Property Name="id_Auteur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
+          <Property Name="Nationalite" Type="varchar" MaxLength="50" />
+          <Property Name="date_deces" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Authentifications">
+          <Key>
+            <PropertyRef Name="User_Name" />
+          </Key>
+          <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password_cle" Type="varchar" MaxLength="50" />
+          <Property Name="Roles" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Confirmpassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Commander">
+          <Key>
+            <PropertyRef Name="Idcom" />
+          </Key>
+          <Property Name="ouvrage" Type="int" Nullable="false" />
+          <Property Name="Prix" Type="float" />
+          <Property Name="quantite" Type="int" />
+          <Property Name="remise" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Idcom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_envoi" Type="datetime" />
+          <Property Name="destinataire" Type="varchar" MaxLength="100" />
+          <Property Name="datecommande" Type="datetime" />
+          <Property Name="ville_livraison" Type="varchar" MaxLength="50" />
+          <Property Name="pays_livraison" Type="varchar" MaxLength="50" />
+          <Property Name="code_postal_livraison" Type="int" />
+          <Property Name="id_ouvrage" Type="int" />
+        </EntityType>
+        <EntityType Name="Ecrire">
+          <Key>
+            <PropertyRef Name="Auteurs_id_Auteur" />
+            <PropertyRef Name="Ouvrages1_id_ouvrage" />
+          </Key>
+          <Property Name="Auteurs_id_Auteur" Type="int" Nullable="false" />
+          <Property Name="Ouvrages1_id_ouvrage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Editeur">
+          <Key>
+            <PropertyRef Name="id_Editeur" />
+          </Key>
+          <Property Name="id_Editeur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ville" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="nomE" Type="varchar" MaxLength="50" />
+          <Property Name="prenomE" Type="varchar" MaxLength="50" />
+          <Property Name="nationalite" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Editeurs">
+          <Key>
+            <PropertyRef Name="id_Editeur" />
+          </Key>
+          <Property Name="id_Editeur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ville" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="nomE" Type="varchar" MaxLength="50" />
+          <Property Name="prenomE" Type="varchar" MaxLength="50" />
+          <Property Name="nationalite" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Etudiants">
+          <Key>
+            <PropertyRef Name="num_etudiant" />
+          </Key>
+          <Property Name="num_etudiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="30" />
+          <Property Name="prenom" Type="varchar" MaxLength="30" />
+          <Property Name="date_naissance" Type="datetime" />
+          <Property Name="telephone" Type="varchar" MaxLength="20" />
+          <Property Name="adresse" Type="varchar" MaxLength="100" />
+          <Property Name="ville" Type="varchar" MaxLength="50" />
+          <Property Name="code_postal" Type="varchar" MaxLength="50" />
+          <Property Name="Pays" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Exemplaires">
+          <Key>
+            <PropertyRef Name="num_exemplaire" />
+          </Key>
+          <Property Name="num_exemplaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="100" />
+          <Property Name="nb_pages" Type="int" />
+          <Property Name="num_etudiant" Type="int" />
+          <Property Name="id_ouvrage" Type="int" />
+          <Property Name="Categorie" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Formations">
+          <Key>
+            <PropertyRef Name="id_formation" />
+          </Key>
+          <Property Name="id_formation" Type="int" Nullable="false" />
+          <Property Name="libelle" Type="varchar" MaxLength="100" />
+          <Property Name="date_debut" Type="datetime" />
+          <Property Name="date_fin" Type="datetime" />
+          <Property Name="id_prof" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InfoUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Prenom" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreation" Type="datetime" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Adresse" Type="varchar" MaxLength="100" />
+          <Property Name="Confirmpassword" Type="nchar" MaxLength="10" />
+          <Property Name="Photo" Type="varchar" MaxLength="200" />
+          <Property Name="User_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inscriptions">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="Prenom" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DateNaissance" Type="datetime" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Confirm_Password" Type="varchar" MaxLength="50" />
+          <Property Name="Nationalite" Type="varchar" MaxLength="50" />
+          <Property Name="Ville" Type="varchar" MaxLength="50" />
+          <Property Name="Numerotele" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mise_a_Jour">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+            <PropertyRef Name="id_version" />
+          </Key>
+          <Property Name="id_ouvrage" Type="int" Nullable="false" />
+          <Property Name="id_version" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="date_miseajour" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Ouvrage">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+          </Key>
+          <Property Name="id_ouvrage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="100" />
+          <Property Name="nb_pages" Type="int" />
+          <Property Name="id_Editeur" Type="int" />
+          <Property Name="Quantite" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="100" />
+          <Property Name="id_Auteur" Type="int" />
+          <Property Name="Photo" Type="varchar" MaxLength="200" />
+          <Property Name="id_type" Type="int" />
+          <Property Name="libelle" Type="varchar" MaxLength="100" />
+          <Property Name="prenomE" Type="varchar" MaxLength="50" />
+          <Property Name="nomE" Type="varchar" MaxLength="50" />
+          <Property Name="Prix" Type="float" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <EntityType Name="Ouvrages">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+          </Key>
+          <Property Name="id_ouvrage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="100" />
+          <Property Name="nb_pages" Type="int" />
+          <Property Name="id_Editeur" Type="int" />
+          <Property Name="Quantite" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="100" />
+          <Property Name="id_Auteur" Type="int" />
+          <Property Name="Photo" Type="varchar" MaxLength="200" />
+          <Property Name="id_type" Type="int" />
+          <Property Name="libelle" Type="varchar" MaxLength="100" />
+          <Property Name="nomE" Type="varchar" MaxLength="50" />
+          <Property Name="prenomE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="professours">
+          <Key>
+            <PropertyRef Name="id_prof" />
+          </Key>
+          <Property Name="id_prof" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
+          <Property Name="datenaissance" Type="datetime" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="adresse" Type="varchar" MaxLength="50" />
+          <Property Name="domaine" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="int" Nullable="false" />
+          <Property Name="libelle" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Version_ouvrage">
+          <Key>
+            <PropertyRef Name="id_version" />
+          </Key>
+          <Property Name="id_version" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="libelle" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <Association Name="FK_appartient_Ouvrage">
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="1" />
+          <End Role="appartients" Type="Self.appartients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="appartients">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commander_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Commander" Type="Self.Commander" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Commander">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ecrire_Auteur">
+          <End Role="Auteurs" Type="Self.Auteurs" Multiplicity="1" />
+          <End Role="Ecrire" Type="Self.Ecrire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auteurs">
+              <PropertyRef Name="id_Auteur" />
+            </Principal>
+            <Dependent Role="Ecrire">
+              <PropertyRef Name="Auteurs_id_Auteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ecrire_Ouvrage">
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="1" />
+          <End Role="Ecrire" Type="Self.Ecrire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Ecrire">
+              <PropertyRef Name="Ouvrages1_id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exemplaire_Etudiant">
+          <End Role="Etudiants" Type="Self.Etudiants" Multiplicity="0..1" />
+          <End Role="Exemplaires" Type="Self.Exemplaires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudiants">
+              <PropertyRef Name="num_etudiant" />
+            </Principal>
+            <Dependent Role="Exemplaires">
+              <PropertyRef Name="num_etudiant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exemplaire_Ouvrage">
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="0..1" />
+          <End Role="Exemplaires" Type="Self.Exemplaires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Exemplaires">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation_professour">
+          <End Role="professours" Type="Self.professours" Multiplicity="0..1" />
+          <End Role="Formations" Type="Self.Formations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="professours">
+              <PropertyRef Name="id_prof" />
+            </Principal>
+            <Dependent Role="Formations">
+              <PropertyRef Name="id_prof" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mise_a_Jour_Ouvrage">
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="1" />
+          <End Role="Mise_a_Jour" Type="Self.Mise_a_Jour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Mise_a_Jour">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mise_a_Jour_Version_ouvrage">
+          <End Role="Version_ouvrage" Type="Self.Version_ouvrage" Multiplicity="1" />
+          <End Role="Mise_a_Jour" Type="Self.Mise_a_Jour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Version_ouvrage">
+              <PropertyRef Name="id_version" />
+            </Principal>
+            <Dependent Role="Mise_a_Jour">
+              <PropertyRef Name="id_version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Auteur1">
+          <End Role="Auteurs" Type="Self.Auteurs" Multiplicity="0..1" />
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auteurs">
+              <PropertyRef Name="id_Auteur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Auteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur">
+          <End Role="Editeurs" Type="Self.Editeurs" Multiplicity="0..1" />
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur1">
+          <End Role="Editeurs" Type="Self.Editeurs" Multiplicity="0..1" />
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur2">
+          <End Role="Editeurs" Type="Self.Editeurs" Multiplicity="0..1" />
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Ouvrage">
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="1" />
+          <End Role="Ouvrages1" Type="Self.Ouvrages" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Ouvrages1">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Type1">
+          <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+          <End Role="Ouvrages" Type="Self.Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="Acheters" EntityType="Self.Acheters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="appartients" EntityType="Self.appartients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auteurs" EntityType="Self.Auteurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Authentifications" EntityType="Self.Authentifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commander" EntityType="Self.Commander" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ecrire" EntityType="Self.Ecrire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Editeur" EntityType="Self.Editeur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Editeurs" EntityType="Self.Editeurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etudiants" EntityType="Self.Etudiants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exemplaires" EntityType="Self.Exemplaires" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formations" EntityType="Self.Formations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoUsers" EntityType="Self.InfoUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inscriptions" EntityType="Self.Inscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mise_a_Jour" EntityType="Self.Mise_a_Jour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ouvrage" EntityType="Self.Ouvrage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ouvrages" EntityType="Self.Ouvrages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="professours" EntityType="Self.professours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Version_ouvrage" EntityType="Self.Version_ouvrage" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_appartient_Ouvrage" Association="Self.FK_appartient_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="appartients" EntitySet="appartients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commander_Ouvrage" Association="Self.FK_Commander_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Commander" EntitySet="Commander" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ecrire_Auteur" Association="Self.FK_Ecrire_Auteur">
+            <End Role="Auteurs" EntitySet="Auteurs" />
+            <End Role="Ecrire" EntitySet="Ecrire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ecrire_Ouvrage" Association="Self.FK_Ecrire_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Ecrire" EntitySet="Ecrire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exemplaire_Etudiant" Association="Self.FK_Exemplaire_Etudiant">
+            <End Role="Etudiants" EntitySet="Etudiants" />
+            <End Role="Exemplaires" EntitySet="Exemplaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exemplaire_Ouvrage" Association="Self.FK_Exemplaire_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Exemplaires" EntitySet="Exemplaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation_professour" Association="Self.FK_Formation_professour">
+            <End Role="professours" EntitySet="professours" />
+            <End Role="Formations" EntitySet="Formations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mise_a_Jour_Ouvrage" Association="Self.FK_Mise_a_Jour_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Mise_a_Jour" EntitySet="Mise_a_Jour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mise_a_Jour_Version_ouvrage" Association="Self.FK_Mise_a_Jour_Version_ouvrage">
+            <End Role="Version_ouvrage" EntitySet="Version_ouvrage" />
+            <End Role="Mise_a_Jour" EntitySet="Mise_a_Jour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Auteur1" Association="Self.FK_Ouvrage_Auteur1">
+            <End Role="Auteurs" EntitySet="Auteurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur" Association="Self.FK_Ouvrage_Editeur">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur1" Association="Self.FK_Ouvrage_Editeur1">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur2" Association="Self.FK_Ouvrage_Editeur2">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Ouvrage" Association="Self.FK_Ouvrage_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Ouvrages1" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Type1" Association="Self.FK_Ouvrage_Type1">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Manage_BooksEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acheters" EntityType="Model1.Acheters" />
+          <EntitySet Name="appartients" EntityType="Model1.appartients" />
+          <EntitySet Name="Auteurs" EntityType="Model1.Auteurs" />
+          <EntitySet Name="Authentifications" EntityType="Model1.Authentifications" />
+          <EntitySet Name="Commander" EntityType="Model1.Commander" />
+          <EntitySet Name="Editeur" EntityType="Model1.Editeur" />
+          <EntitySet Name="Editeurs" EntityType="Model1.Editeurs" />
+          <EntitySet Name="Etudiants" EntityType="Model1.Etudiants" />
+          <EntitySet Name="Exemplaires" EntityType="Model1.Exemplaires" />
+          <EntitySet Name="Formations" EntityType="Model1.Formations" />
+          <EntitySet Name="InfoUsers" EntityType="Model1.InfoUsers" />
+          <EntitySet Name="Inscriptions" EntityType="Model1.Inscriptions" />
+          <EntitySet Name="Mise_a_Jour" EntityType="Model1.Mise_a_Jour" />
+          <EntitySet Name="Ouvrage" EntityType="Model1.Ouvrage" />
+          <EntitySet Name="Ouvrages" EntityType="Model1.Ouvrages" />
+          <EntitySet Name="professours" EntityType="Model1.professours" />
+          <EntitySet Name="sysdiagrams" EntityType="Model1.sysdiagrams" />
+          <EntitySet Name="Types" EntityType="Model1.Types" />
+          <EntitySet Name="Version_ouvrage" EntityType="Model1.Version_ouvrage" />
+          <AssociationSet Name="FK_appartient_Ouvrage" Association="Model1.FK_appartient_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="appartients" EntitySet="appartients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Auteur1" Association="Model1.FK_Ouvrage_Auteur1">
+            <End Role="Auteurs" EntitySet="Auteurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur" Association="Model1.FK_Ouvrage_Editeur">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur1" Association="Model1.FK_Ouvrage_Editeur1">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Editeur2" Association="Model1.FK_Ouvrage_Editeur2">
+            <End Role="Editeurs" EntitySet="Editeurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exemplaire_Etudiant" Association="Model1.FK_Exemplaire_Etudiant">
+            <End Role="Etudiants" EntitySet="Etudiants" />
+            <End Role="Exemplaires" EntitySet="Exemplaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exemplaire_Ouvrage" Association="Model1.FK_Exemplaire_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Exemplaires" EntitySet="Exemplaires" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Formation_professour" Association="Model1.FK_Formation_professour">
+            <End Role="professours" EntitySet="professours" />
+            <End Role="Formations" EntitySet="Formations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mise_a_Jour_Ouvrage" Association="Model1.FK_Mise_a_Jour_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Mise_a_Jour" EntitySet="Mise_a_Jour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mise_a_Jour_Version_ouvrage" Association="Model1.FK_Mise_a_Jour_Version_ouvrage">
+            <End Role="Version_ouvrage" EntitySet="Version_ouvrage" />
+            <End Role="Mise_a_Jour" EntitySet="Mise_a_Jour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Ouvrage" Association="Model1.FK_Ouvrage_Ouvrage">
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+            <End Role="Ouvrages1" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Type1" Association="Model1.FK_Ouvrage_Type1">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="Ecrire" Association="Model1.Ecrire">
+            <End Role="Auteurs" EntitySet="Auteurs" />
+            <End Role="Ouvrages" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commander_Ouvrage" Association="Model1.FK_Commander_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Commander" EntitySet="Commander" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Acheters">
+          <Key>
+            <PropertyRef Name="Etudiant" />
+            <PropertyRef Name="Ouvrage" />
+          </Key>
+          <Property Name="Etudiant" Type="Int32" Nullable="false" />
+          <Property Name="Ouvrage" Type="Int32" Nullable="false" />
+          <Property Name="date_Acheter" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="appartients">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_ouvrage" Type="Int32" Nullable="false" />
+          <Property Name="id_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_appartient_Ouvrage" FromRole="appartients" ToRole="Ouvrages" />
+        </EntityType>
+        <EntityType Name="Auteurs">
+          <Key>
+            <PropertyRef Name="id_Auteur" />
+          </Key>
+          <Property Name="id_Auteur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationalite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_deces" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_Ouvrage_Auteur1" FromRole="Auteurs" ToRole="Ouvrages" />
+          <NavigationProperty Name="Ouvrages1" Relationship="Model1.Ecrire" FromRole="Auteurs" ToRole="Ouvrages" />
+        </EntityType>
+        <EntityType Name="Authentifications">
+          <Key>
+            <PropertyRef Name="User_Name" />
+          </Key>
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password_cle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Confirmpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Commander">
+          <Key>
+            <PropertyRef Name="Idcom" />
+          </Key>
+          <Property Name="ouvrage" Type="Int32" Nullable="false" />
+          <Property Name="Prix" Type="Double" />
+          <Property Name="quantite" Type="Int32" />
+          <Property Name="remise" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Idcom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_envoi" Type="DateTime" Precision="3" />
+          <Property Name="destinataire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="datecommande" Type="DateTime" Precision="3" />
+          <Property Name="ville_livraison" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pays_livraison" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_postal_livraison" Type="Int32" />
+          <Property Name="id_ouvrage" Type="Int32" />
+          <NavigationProperty Name="Ouvrage1" Relationship="Model1.FK_Commander_Ouvrage" FromRole="Commander" ToRole="Ouvrage" />
+        </EntityType>
+        <EntityType Name="Editeur">
+          <Key>
+            <PropertyRef Name="id_Editeur" />
+          </Key>
+          <Property Name="id_Editeur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nationalite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Editeurs">
+          <Key>
+            <PropertyRef Name="id_Editeur" />
+          </Key>
+          <Property Name="id_Editeur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nationalite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_Ouvrage_Editeur" FromRole="Editeurs" ToRole="Ouvrages" />
+          <NavigationProperty Name="Ouvrages1" Relationship="Model1.FK_Ouvrage_Editeur1" FromRole="Editeurs" ToRole="Ouvrages" />
+          <NavigationProperty Name="Ouvrages2" Relationship="Model1.FK_Ouvrage_Editeur2" FromRole="Editeurs" ToRole="Ouvrages" />
+        </EntityType>
+        <EntityType Name="Etudiants">
+          <Key>
+            <PropertyRef Name="num_etudiant" />
+          </Key>
+          <Property Name="num_etudiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="date_naissance" Type="DateTime" Precision="3" />
+          <Property Name="telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="code_postal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Exemplaires" Relationship="Model1.FK_Exemplaire_Etudiant" FromRole="Etudiants" ToRole="Exemplaires" />
+        </EntityType>
+        <EntityType Name="Exemplaires">
+          <Key>
+            <PropertyRef Name="num_exemplaire" />
+          </Key>
+          <Property Name="num_exemplaire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nb_pages" Type="Int32" />
+          <Property Name="num_etudiant" Type="Int32" />
+          <Property Name="id_ouvrage" Type="Int32" />
+          <Property Name="Categorie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Etudiants" Relationship="Model1.FK_Exemplaire_Etudiant" FromRole="Exemplaires" ToRole="Etudiants" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_Exemplaire_Ouvrage" FromRole="Exemplaires" ToRole="Ouvrages" />
+        </EntityType>
+        <EntityType Name="Formations">
+          <Key>
+            <PropertyRef Name="id_formation" />
+          </Key>
+          <Property Name="id_formation" Type="Int32" Nullable="false" />
+          <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_debut" Type="DateTime" Precision="3" />
+          <Property Name="date_fin" Type="DateTime" Precision="3" />
+          <Property Name="id_prof" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="professours" Relationship="Model1.FK_Formation_professour" FromRole="Formations" ToRole="professours" />
+        </EntityType>
+        <EntityType Name="InfoUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreation" Type="DateTime" Precision="3" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Confirmpassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inscriptions">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="3" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Confirm_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationalite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ville" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numerotele" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Mise_a_Jour">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+            <PropertyRef Name="id_version" />
+          </Key>
+          <Property Name="id_ouvrage" Type="Int32" Nullable="false" />
+          <Property Name="id_version" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="date_miseajour" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_Mise_a_Jour_Ouvrage" FromRole="Mise_a_Jour" ToRole="Ouvrages" />
+          <NavigationProperty Name="Version_ouvrage" Relationship="Model1.FK_Mise_a_Jour_Version_ouvrage" FromRole="Mise_a_Jour" ToRole="Version_ouvrage" />
+        </EntityType>
+        <EntityType Name="Ouvrage">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+          </Key>
+          <Property Name="id_ouvrage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nb_pages" Type="Int32" />
+          <Property Name="id_Editeur" Type="Int32" />
+          <Property Name="Quantite" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_Auteur" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_type" Type="Int32" />
+          <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prenomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prix" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Total" Type="Double" />
+          <NavigationProperty Name="Commander" Relationship="Model1.FK_Commander_Ouvrage" FromRole="Ouvrage" ToRole="Commander" />
+        </EntityType>
+        <EntityType Name="Ouvrages">
+          <Key>
+            <PropertyRef Name="id_ouvrage" />
+          </Key>
+          <Property Name="id_ouvrage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nb_pages" Type="Int32" />
+          <Property Name="id_Editeur" Type="Int32" />
+          <Property Name="Quantite" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_Auteur" Type="Int32" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_type" Type="Int32" />
+          <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenomE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="appartients" Relationship="Model1.FK_appartient_Ouvrage" FromRole="Ouvrages" ToRole="appartients" />
+          <NavigationProperty Name="Auteurs" Relationship="Model1.FK_Ouvrage_Auteur1" FromRole="Ouvrages" ToRole="Auteurs" />
+          <NavigationProperty Name="Editeurs" Relationship="Model1.FK_Ouvrage_Editeur" FromRole="Ouvrages" ToRole="Editeurs" />
+          <NavigationProperty Name="Editeurs1" Relationship="Model1.FK_Ouvrage_Editeur1" FromRole="Ouvrages" ToRole="Editeurs" />
+          <NavigationProperty Name="Editeurs2" Relationship="Model1.FK_Ouvrage_Editeur2" FromRole="Ouvrages" ToRole="Editeurs" />
+          <NavigationProperty Name="Exemplaires" Relationship="Model1.FK_Exemplaire_Ouvrage" FromRole="Ouvrages" ToRole="Exemplaires" />
+          <NavigationProperty Name="Mise_a_Jour" Relationship="Model1.FK_Mise_a_Jour_Ouvrage" FromRole="Ouvrages" ToRole="Mise_a_Jour" />
+          <NavigationProperty Name="Ouvrages1" Relationship="Model1.FK_Ouvrage_Ouvrage" FromRole="Ouvrages" ToRole="Ouvrages1" />
+          <NavigationProperty Name="Ouvrages2" Relationship="Model1.FK_Ouvrage_Ouvrage" FromRole="Ouvrages1" ToRole="Ouvrages" />
+          <NavigationProperty Name="Types" Relationship="Model1.FK_Ouvrage_Type1" FromRole="Ouvrages" ToRole="Types" />
+          <NavigationProperty Name="Auteurs1" Relationship="Model1.Ecrire" FromRole="Ouvrages" ToRole="Auteurs" />
+        </EntityType>
+        <EntityType Name="professours">
+          <Key>
+            <PropertyRef Name="id_prof" />
+          </Key>
+          <Property Name="id_prof" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datenaissance" Type="DateTime" Precision="3" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="domaine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Formations" Relationship="Model1.FK_Formation_professour" FromRole="professours" ToRole="Formations" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="id_type" />
+          </Key>
+          <Property Name="id_type" Type="Int32" Nullable="false" />
+          <Property Name="libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ouvrages" Relationship="Model1.FK_Ouvrage_Type1" FromRole="Types" ToRole="Ouvrages" />
+        </EntityType>
+        <EntityType Name="Version_ouvrage">
+          <Key>
+            <PropertyRef Name="id_version" />
+          </Key>
+          <Property Name="id_version" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="libelle" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Mise_a_Jour" Relationship="Model1.FK_Mise_a_Jour_Version_ouvrage" FromRole="Version_ouvrage" ToRole="Mise_a_Jour" />
+        </EntityType>
+        <Association Name="FK_appartient_Ouvrage">
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="1" />
+          <End Type="Model1.appartients" Role="appartients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="appartients">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Auteur1">
+          <End Type="Model1.Auteurs" Role="Auteurs" Multiplicity="0..1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auteurs">
+              <PropertyRef Name="id_Auteur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Auteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur">
+          <End Type="Model1.Editeurs" Role="Editeurs" Multiplicity="0..1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur1">
+          <End Type="Model1.Editeurs" Role="Editeurs" Multiplicity="0..1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Editeur2">
+          <End Type="Model1.Editeurs" Role="Editeurs" Multiplicity="0..1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editeurs">
+              <PropertyRef Name="id_Editeur" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_Editeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exemplaire_Etudiant">
+          <End Type="Model1.Etudiants" Role="Etudiants" Multiplicity="0..1" />
+          <End Type="Model1.Exemplaires" Role="Exemplaires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudiants">
+              <PropertyRef Name="num_etudiant" />
+            </Principal>
+            <Dependent Role="Exemplaires">
+              <PropertyRef Name="num_etudiant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exemplaire_Ouvrage">
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="0..1" />
+          <End Type="Model1.Exemplaires" Role="Exemplaires" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Exemplaires">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Formation_professour">
+          <End Type="Model1.professours" Role="professours" Multiplicity="0..1" />
+          <End Type="Model1.Formations" Role="Formations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="professours">
+              <PropertyRef Name="id_prof" />
+            </Principal>
+            <Dependent Role="Formations">
+              <PropertyRef Name="id_prof" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mise_a_Jour_Ouvrage">
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="1" />
+          <End Type="Model1.Mise_a_Jour" Role="Mise_a_Jour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Mise_a_Jour">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mise_a_Jour_Version_ouvrage">
+          <End Type="Model1.Version_ouvrage" Role="Version_ouvrage" Multiplicity="1" />
+          <End Type="Model1.Mise_a_Jour" Role="Mise_a_Jour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Version_ouvrage">
+              <PropertyRef Name="id_version" />
+            </Principal>
+            <Dependent Role="Mise_a_Jour">
+              <PropertyRef Name="id_version" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Ouvrage">
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrages">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Ouvrages1">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Type1">
+          <End Type="Model1.Types" Role="Types" Multiplicity="0..1" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="id_type" />
+            </Principal>
+            <Dependent Role="Ouvrages">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Ecrire">
+          <End Type="Model1.Auteurs" Role="Auteurs" Multiplicity="*" />
+          <End Type="Model1.Ouvrages" Role="Ouvrages" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Commander_Ouvrage">
+          <End Type="Model1.Ouvrage" Role="Ouvrage" Multiplicity="0..1" />
+          <End Type="Model1.Commander" Role="Commander" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="id_ouvrage" />
+            </Principal>
+            <Dependent Role="Commander">
+              <PropertyRef Name="id_ouvrage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Manage_BooksEntities1">
+          <EntitySetMapping Name="Acheters">
+            <EntityTypeMapping TypeName="Model1.Acheters">
+              <MappingFragment StoreEntitySet="Acheters">
+                <ScalarProperty Name="date_Acheter" ColumnName="date_Acheter" />
+                <ScalarProperty Name="Ouvrage" ColumnName="Ouvrage" />
+                <ScalarProperty Name="Etudiant" ColumnName="Etudiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="appartients">
+            <EntityTypeMapping TypeName="Model1.appartients">
+              <MappingFragment StoreEntitySet="appartients">
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auteurs">
+            <EntityTypeMapping TypeName="Model1.Auteurs">
+              <MappingFragment StoreEntitySet="Auteurs">
+                <ScalarProperty Name="date_deces" ColumnName="date_deces" />
+                <ScalarProperty Name="Nationalite" ColumnName="Nationalite" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id_Auteur" ColumnName="id_Auteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authentifications">
+            <EntityTypeMapping TypeName="Model1.Authentifications">
+              <MappingFragment StoreEntitySet="Authentifications">
+                <ScalarProperty Name="Confirmpassword" ColumnName="Confirmpassword" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="Password_cle" ColumnName="Password_cle" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commander">
+            <EntityTypeMapping TypeName="Model1.Commander">
+              <MappingFragment StoreEntitySet="Commander">
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+                <ScalarProperty Name="code_postal_livraison" ColumnName="code_postal_livraison" />
+                <ScalarProperty Name="pays_livraison" ColumnName="pays_livraison" />
+                <ScalarProperty Name="ville_livraison" ColumnName="ville_livraison" />
+                <ScalarProperty Name="datecommande" ColumnName="datecommande" />
+                <ScalarProperty Name="destinataire" ColumnName="destinataire" />
+                <ScalarProperty Name="date_envoi" ColumnName="date_envoi" />
+                <ScalarProperty Name="Idcom" ColumnName="Idcom" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="remise" ColumnName="remise" />
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="ouvrage" ColumnName="ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Editeur">
+            <EntityTypeMapping TypeName="Model1.Editeur">
+              <MappingFragment StoreEntitySet="Editeur">
+                <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+                <ScalarProperty Name="prenomE" ColumnName="prenomE" />
+                <ScalarProperty Name="nomE" ColumnName="nomE" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="id_Editeur" ColumnName="id_Editeur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Editeurs">
+            <EntityTypeMapping TypeName="Model1.Editeurs">
+              <MappingFragment StoreEntitySet="Editeurs">
+                <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+                <ScalarProperty Name="prenomE" ColumnName="prenomE" />
+                <ScalarProperty Name="nomE" ColumnName="nomE" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="id_Editeur" ColumnName="id_Editeur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etudiants">
+            <EntityTypeMapping TypeName="Model1.Etudiants">
+              <MappingFragment StoreEntitySet="Etudiants">
+                <ScalarProperty Name="Pays" ColumnName="Pays" />
+                <ScalarProperty Name="code_postal" ColumnName="code_postal" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="num_etudiant" ColumnName="num_etudiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exemplaires">
+            <EntityTypeMapping TypeName="Model1.Exemplaires">
+              <MappingFragment StoreEntitySet="Exemplaires">
+                <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+                <ScalarProperty Name="num_etudiant" ColumnName="num_etudiant" />
+                <ScalarProperty Name="nb_pages" ColumnName="nb_pages" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="num_exemplaire" ColumnName="num_exemplaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formations">
+            <EntityTypeMapping TypeName="Model1.Formations">
+              <MappingFragment StoreEntitySet="Formations">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id_prof" ColumnName="id_prof" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoUsers">
+            <EntityTypeMapping TypeName="Model1.InfoUsers">
+              <MappingFragment StoreEntitySet="InfoUsers">
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Confirmpassword" ColumnName="Confirmpassword" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inscriptions">
+            <EntityTypeMapping TypeName="Model1.Inscriptions">
+              <MappingFragment StoreEntitySet="Inscriptions">
+                <ScalarProperty Name="Numerotele" ColumnName="Numerotele" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="Nationalite" ColumnName="Nationalite" />
+                <ScalarProperty Name="Confirm_Password" ColumnName="Confirm_Password" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mise_a_Jour">
+            <EntityTypeMapping TypeName="Model1.Mise_a_Jour">
+              <MappingFragment StoreEntitySet="Mise_a_Jour">
+                <ScalarProperty Name="date_miseajour" ColumnName="date_miseajour" />
+                <ScalarProperty Name="id_version" ColumnName="id_version" />
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ouvrage">
+            <EntityTypeMapping TypeName="Model1.Ouvrage">
+              <MappingFragment StoreEntitySet="Ouvrage">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="nomE" ColumnName="nomE" />
+                <ScalarProperty Name="prenomE" ColumnName="prenomE" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="id_Auteur" ColumnName="id_Auteur" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="id_Editeur" ColumnName="id_Editeur" />
+                <ScalarProperty Name="nb_pages" ColumnName="nb_pages" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ouvrages">
+            <EntityTypeMapping TypeName="Model1.Ouvrages">
+              <MappingFragment StoreEntitySet="Ouvrages">
+                <ScalarProperty Name="prenomE" ColumnName="prenomE" />
+                <ScalarProperty Name="nomE" ColumnName="nomE" />
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="id_Auteur" ColumnName="id_Auteur" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="id_Editeur" ColumnName="id_Editeur" />
+                <ScalarProperty Name="nb_pages" ColumnName="nb_pages" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="id_ouvrage" ColumnName="id_ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="professours">
+            <EntityTypeMapping TypeName="Model1.professours">
+              <MappingFragment StoreEntitySet="professours">
+                <ScalarProperty Name="domaine" ColumnName="domaine" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="datenaissance" ColumnName="datenaissance" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="id_prof" ColumnName="id_prof" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model1.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="Model1.Types">
+              <MappingFragment StoreEntitySet="Types">
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Version_ouvrage">
+            <EntityTypeMapping TypeName="Model1.Version_ouvrage">
+              <MappingFragment StoreEntitySet="Version_ouvrage">
+                <ScalarProperty Name="libelle" ColumnName="libelle" />
+                <ScalarProperty Name="id_version" ColumnName="id_version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Ecrire" TypeName="Model1.Ecrire" StoreEntitySet="Ecrire">
+            <EndProperty Name="Ouvrages">
+              <ScalarProperty Name="id_ouvrage" ColumnName="Ouvrages1_id_ouvrage" />
+            </EndProperty>
+            <EndProperty Name="Auteurs">
+              <ScalarProperty Name="id_Auteur" ColumnName="Auteurs_id_Auteur" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

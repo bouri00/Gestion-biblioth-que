@@ -9,13 +9,12 @@ namespace Admin_pro.Controllers
 {
     public class listprofController : Controller
     {
-
-        Manage_BooksEntities bd_prof = new Manage_BooksEntities();
+        
         // GET: listprof
         public ActionResult listprof()
         {
-            var list = bd_prof.professour.ToList();
-            return View(list);
+           
+            return View();
         }
     }
 }

@@ -1,19 +1,17 @@
-﻿
-
-
-
-@model IEnumerable<Admin_pro.Models.Auteur>
+﻿@model IEnumerable<Admin_pro.Models.Auteur>
 
 
 <div class="right_col" role="main">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Liste d'ouvrage : <small>Users</small></h2>
+                <h2>Liste Des Auteur <small>Users</small></h2>
+
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
@@ -25,49 +23,88 @@
                             </li>
                         </ul>
                     </li>
+
                     <li>
                         <a class="close-link"><i class="fa fa-close"></i></a>
                     </li>
+                    <li>
+                        <!-- Large modal -->
+                        <button type="button" class="btn btn-primary BtnAUTEUR" data-toggle="modal" data-url="/Auteur/Create">Nouveau</button>
+                    </li>
+
                 </ul>
                 <div class="clearfix"></div>
             </div>
-            <!-- <div class="x_content">
-                 <p class="text-muted font-13 m-b-30">
-                     The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                 </p>-->
+
+
             <table id="datatable-buttons" class="table table-striped table-bordered">
 
 
                 <thead>
                     <tr>
-                        <th>Numero Auteur  </th>
-                        <th> Nom</th>
+                        <th>Numero Auteur : </th>
+                        <th>Nom  </th>
                         <th>Prénom </th>
-                        <th> Nationalite</th>
-                        <th>Date decesion </th>
+                        <th> Nationalite </th>
+                        <th> Date decesion </th>
+                        <th> Action</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
 
-                    @foreach (var aut in Model)
+                    @foreach (var au in Model)
                     {
-
                         <tr>
-                            <td>@aut.id_Auteur </td>
-                            <td>@aut.nom</td>
-                            <td> @aut.prenom</td>
-                            <td> @aut.Nationalite</td>
-                            <td>@aut.date_deces</td>
+                            <td>@au.id_Auteur</td>
+                            <td>@au.nom</td>
+                            <td> @au.prenom</td>
+                            <td> @au.Nationalite</td>
+                            <td> @au.date_deces</td>
+
+                            
+                          
 
 
+                            <td>
+
+                                <button class="btn btn-primary btn-xs BtnAUTEUR" data-toggle="modal" data-url="/Auteur/Create?id_Auteur=@au.id_Auteur"><i class="fa fa-folder"></i> Afficher</button>
+                                <button href="#" class="btn btn-info btn-xs BtnAUTEUR" data-toggle="modal" data-url="/Auteur/Create?id_Auteur=@au.id_Auteur"><i class="fa fa-pencil"></i> Modifer </button>
+                                <button class="btn btn-danger btn-xs BtnAUTEUR" data-toggle="modal" data-url="/Auteur/Delete?id_Auteur=@au.id_Auteur"><i class="fa fa-trash-o"></i> Supprimer</button>
+                            </td>
                         </tr>
 
                     }
                 </tbody>
+
+
             </table>
+
+
+
         </div>
     </div>
 </div>
+
+
+<span id="Modal_CrudAUT">
+
+</span>
+
+<script>
+    $('.BtnAUTEUR').click(function () {
+        var url = $(this).attr('data-url');
+        $('#Modal_CrudAUT').html('');
+        $.get(url, function (data) {
+
+            $('#Modal_CrudAUT').html(data);
+            $('#MymodalAT').modal('show');
+        });
+    });
+</script>
+
+
+
+
 

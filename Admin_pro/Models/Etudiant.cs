@@ -17,8 +17,7 @@ namespace Admin_pro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Etudiant()
         {
-            this.Exemplaire = new HashSet<Exemplaire>();
-            this.Commande = new HashSet<Commande>();
+            this.Exemplaires = new HashSet<Exemplaire>();
         }
     
         public int num_etudiant { get; set; }
@@ -29,10 +28,9 @@ namespace Admin_pro.Models
         public string adresse { get; set; }
         public string ville { get; set; }
         public string code_postal { get; set; }
+        public string Pays { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exemplaire> Exemplaire { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Commande> Commande { get; set; }
+        public virtual ICollection<Exemplaire> Exemplaires { get; set; }
     }
 }

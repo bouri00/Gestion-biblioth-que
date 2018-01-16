@@ -17,25 +17,29 @@ namespace Admin_pro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ouvrage()
         {
-            this.Exemplaire = new HashSet<Exemplaire>();
-            this.Mise_a_Jour = new HashSet<Mise_a_Jour>();
-            this.Type = new HashSet<Type>();
-            this.Auteur = new HashSet<Auteur>();
+            this.Commanders = new HashSet<Commander>();
+            this.Reservations = new HashSet<Reservation>();
         }
     
-        public string id_ouvrage { get; set; }
+        public int id_ouvrage { get; set; }
         public string titre { get; set; }
         public Nullable<int> nb_pages { get; set; }
-        public string id_Editeur { get; set; }
+        public Nullable<int> id_Editeur { get; set; }
+        public Nullable<int> Quantite { get; set; }
+        public string Type { get; set; }
+        public Nullable<int> id_Auteur { get; set; }
+        public string Photo { get; set; }
+        public Nullable<int> id_type { get; set; }
+        public string libelle { get; set; }
+        public string prenomE { get; set; }
+        public string nomE { get; set; }
+        public Nullable<double> Prix { get; set; }
+        public string Description { get; set; }
+        public Nullable<double> Total { get; set; }
     
-        public virtual Editeur Editeur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exemplaire> Exemplaire { get; set; }
+        public virtual ICollection<Commander> Commanders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mise_a_Jour> Mise_a_Jour { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Type> Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Auteur> Auteur { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

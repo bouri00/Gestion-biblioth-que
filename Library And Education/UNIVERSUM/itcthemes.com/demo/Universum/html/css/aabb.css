@@ -1,0 +1,99 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+
+body{
+  font-family: Noto Sans;
+  background:#272727;
+}
+
+.clearfix:after {
+   visibility: hidden;
+   display: block;
+   content: " ";
+   clear: both;
+   height: 0;
+ }
+
+/*/////////////////////////////////////////////////////////////
+    // Social Sharing Icons \\
+///////////////////////////////////////////////////////////// */
+.cs-social-share {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  margin: 30vh auto;
+  display: block;
+  background: #424242;
+  border: solid 3px #2F2F2F;
+  padding: 2%;
+}
+
+/*/////////////////////////////////////////////////////////////
+    // Social Sharing Icons On Product Page \\
+///////////////////////////////////////////////////////////// */
+.cs-share-this-product {
+    float: left;
+  width: 15%;
+  height: 30px;
+  padding: 1px 0px;
+  min-width: 68px;
+  margin: 2% .8%;
+  overflow: hidden;
+  -webkit-filter:brightness(90%);
+  -moz-filter:brightness(90%);
+  -ms-filter:brightness(90%);
+  -o-filter:brightness(90%);
+  filter:brightness(90%);
+  transition: all .45s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    border-radius: 3px;
+    -webkit-filter:brightness(120%);
+    -moz-filter:brightness(120%);
+    -ms-filter:brightness(120%);
+    -o-filter:brightness(120%);
+    filter:brightness(120%);
+    
+    img {
+      left: 32%;
+      transform: scale(1);
+    }
+    
+    span.share-text {
+      opacity: 0;
+      left: 20px;
+      transform: rotateX(90deg) scale(0.3);
+    }
+  }
+  
+  a {
+    text-decoration:none;
+  }
+  
+  img {
+    width: 28px;
+    transition: all .5s ease;
+    position: relative;
+    left: 0;
+    transform: scale(.8);
+  }
+  
+  .social-share-icon-block {
+    
+    span.share-text {
+      font-size: 12px;
+      color: #fff;
+      position: relative;
+      left: -3px;
+      top:-8px;
+      transition: all .45s ease-in-out;
+    }
+  }
+  
+  &.facebook { background: #527EBF; }
+  &.twitter { background: #25C0E2; }
+  &.google-plus { background: #DB4A37; }
+  &.pinterest { background: #CD2129; }
+  &.linkedin { background: #147BB7; }
+  &.email { background: #0F75BC; }
+}

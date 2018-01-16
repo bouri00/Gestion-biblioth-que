@@ -13,8 +13,8 @@ namespace Admin_pro.Controllers
         // GET: ListeFormation
         public ActionResult ListeFormation()
         {
-            var list = bd_librairie.Formation.ToList();
-            return View(list);
+          
+            return View();
 
         }
     }

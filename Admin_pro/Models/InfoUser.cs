@@ -16,12 +16,14 @@ namespace Admin_pro.Models
     {
         public int id { get; set; }
         public string Email { get; set; }
-        public string confirmEmail { get; set; }
+        public string Prenom { get; set; }
         public string Name { get; set; }
-        public string websiteurl { get; set; }
+        public Nullable<System.DateTime> DateCreation { get; set; }
         public string password { get; set; }
-        public string confirmpassword { get; set; }
         public string telephone { get; set; }
         public string Adresse { get; set; }
+        public string Confirmpassword { get; set; }
+        public string Photo { get; set; }
+        public string User_Name { get; set; }
     }
 }

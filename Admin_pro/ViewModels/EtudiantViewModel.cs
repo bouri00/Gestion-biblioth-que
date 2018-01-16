@@ -17,5 +17,6 @@ namespace Admin_pro.ViewModels
         public string adresse { get; set; }
         public string ville { get; set; }
         public string code_postal { get; set; }
+        public string Pays { get; set; }
     }
 }

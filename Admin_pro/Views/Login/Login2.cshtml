@@ -3,8 +3,9 @@
     ViewBag.Title = "Login";
     Layout = null;
 }
+@model Admin_pro.Models.Authentification
 
-<CENTER><h2> Hallo , User : ........</h2></CENTER>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,35 +28,70 @@
     <link href="~/gentelella-master/build/css/custom.min.css" rel="stylesheet">
 </head>
 <body class="login">
+
+
+
+@using (Html.BeginForm("Login2", "Login", FormMethod.Post, new { id = "test" }))
+{
+   
+  
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
     <div>
         <a class="hiddenanchor" id="signup"></a>
         <a class="hiddenanchor" id="signin"></a>
         <div class="login_wrapper">
+         
             <div class="animate form login_form">
-                <section class="login_content">
-                    <form>
-                        <h1> Se Connecte          :</h1>
+             
+                  <section class="login_content">
+                      
+                      <h1>   Admin</h1>
+                      <form>
+                        <h1> Bienvennue,<small> Veuillez vous connecter</small></h1>
+                        @*<div>
+        <input type="text" class="form-control" placeholder="Username" required="required" />
+    </div>
+    <div>
+        <input type="password" class="form-control" placeholder="Password" required="required" />
+    </div>*@
                         <div>
-                            <input type="text" class="form-control" placeholder="Username" required="required" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Password" required="required" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="index.html">Log in</a>
-                            <a class="reset_pass" href="#">Lost your password?</a>
+
+                        <table>
+                            <tr>
+                                <td>  Login  :</td>
+
+                                <td>  @Html.TextBoxFor(a => a.User_Name)  </td>
+                                <td> @Html.ValidationMessageFor(a => a.User_Name)</td>
+                            </tr>
+
+
+                            <tr>
+                                <td> Password : </td>
+                                <td> @Html.TextBoxFor(b => b.Password_cle, new { Type = "password" })</td>
+                                <td>@Html.ValidationMessageFor(b => b.Password_cle )</td>
+                            </tr>
+
+                        </table>   <br /><br />  
+
+                            @*<input type="email" class="form-control"  required="required" placeholder="Email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>*@
+                    
+                            @*<a class="btn btn-default submit" ty > Connecter </a>*@
+                            <button type="submit" class="btn btn-default submit"> Connecter </button>
                         </div>
                         <div class="clearfix"></div>
                         <div class="separator">
-                            <p class="change_link">
+                            @*<p class="change_link">
                                 New to site?
                                 <a href="#signup" class="to_register"> crier Nouveau Compte </a>
-                            </p>
+                            </p>*@
                             <div class="clearfix"></div>
                             <br />
                             <div>
-                                <h1><i class="fa fa-paw"></i>  Hallo All Users   </h1>
-                                <p>©2016 All Rights Reserved. Admin Mustapha is a Users of The Application . Privacy and Terms</p>
+                                @*<h1><i class="fa fa-paw"></i> Hallo All Users   </h1>*@
+                                <p>©2017 All Rights Reserved. Admin Mustapha is a Users of The Application . Privacy and Terms</p>
                             </div>
                         </div>
                     </form>
@@ -95,5 +131,5 @@
             </div>
         </div>
     </div>
-</body>
+}</body>
 </html>
